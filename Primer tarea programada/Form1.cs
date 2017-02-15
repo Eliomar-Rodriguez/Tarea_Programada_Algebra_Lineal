@@ -12,6 +12,9 @@ namespace Primer_tarea_programada
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// lista que contiene las 3 matrices (a, b, c)
+        /// </summary>
         List<List<List<TextBox>>> ListaMatrices = new List<List<List<TextBox>>>();
         int filas = 0, columnas = 0;
         public Form1()
@@ -44,6 +47,7 @@ namespace Primer_tarea_programada
                     ListaMatrices[x].Add(new List<System.Windows.Forms.TextBox>());
                 }
             }
+            // matriz a
             ListaMatrices[0][0].Add(a11);
             ListaMatrices[0][0].Add(a12);
             ListaMatrices[0][0].Add(a13);
@@ -74,7 +78,7 @@ namespace Primer_tarea_programada
             ListaMatrices[0][4].Add(a54);
             ListaMatrices[0][4].Add(a55);
 
-            //
+            // matriz b
 
             ListaMatrices[1][0].Add(b11);
             ListaMatrices[1][0].Add(b12);
@@ -153,12 +157,52 @@ namespace Primer_tarea_programada
         {
             
         }
+        
+        /// <summary>
+        /// Función encargada de poner false en la propiedad visible de todas las cajas de la matriz 5x5 que se pueden trabajar
+        /// </summary>
+        void OcultarCajas()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int f = 0; f < 5; f++)
+                {
+                    for (int c = 0; c < 5; c++)
+                    {
+                        ListaMatrices[i][f][c].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnResolver_Click(object sender, EventArgs e)
+        {
+            int[,] matriz_a = new int[5,5];
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Boton que genera (crea) la matriz
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OcultarCajas();
+
             if (txtFilas.Text.Length == 0 | txtColumnas.Text.Length == 0)
             {
-                Console.WriteLine("Debe ingresar ambos valores para generar la matriz");
+                lblMsg.ForeColor = Color.Red;
+                lblMsg.Text = "Debe ingresar ambos valores para generar la matriz.";
             }
             else
             {
@@ -167,22 +211,38 @@ namespace Primer_tarea_programada
 
                 if (!rows | !columns) // si es true (eran solo numeros)
                 {
-                    Console.WriteLine("Debe ingresar solamente numeros.\n");
+                    lblMsg.ForeColor = Color.Red;
+                    lblMsg.Text = "Debe ingresar solamente numeros.";
                 }
                 else
                 {
+                    filas = int.Parse(txtFilas.Text);
+                    columnas = int.Parse(txtColumnas.Text);
+
                     if ((filas <= 5 & columnas <= 5) & (filas > 0 & columnas > 0))
                     {
-                        int[,] array = new int[filas, columnas];
-                        Console.WriteLine("Matriz creada de manera exitosa");
+                        lblMsg.Text = "Matriz creada de manera exitosa.";
+                        lblMsg.ForeColor = Color.Green;
+
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int f = 0; f < int.Parse(txtFilas.Text); f++)
+                            {
+                                for (int c = 0; c < int.Parse(txtColumnas.Text); c++)
+                                {
+                                    ListaMatrices[i][f][c].Visible = true;
+                                }
+                            }
+                        }                        
                     }
                     else
                     {
-                        Console.WriteLine("Debe ingresar numeros mayores o iguales a 1 y menores o iguales a 5");
+                        lblMsg.ForeColor = Color.Red;
+                        lblMsg.Text = "Debe solo ingresar #`s >= 1 y #`s <= 5.";
                     }
                 }
             }
-            
         }
+
     }
 }
