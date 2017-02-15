@@ -16,7 +16,11 @@ namespace Primer_tarea_programada
         /// lista que contiene las 3 matrices (a, b, c)
         /// </summary>
         List<List<List<TextBox>>> ListaMatrices = new List<List<List<TextBox>>>();
-        int filas = 0, columnas = 0;
+        
+        static int filas = 0, columnas = 0;
+
+        static int[,] matrizA = new int[filas, columnas];
+
         public Form1()
         {
             InitializeComponent();
@@ -169,7 +173,7 @@ namespace Primer_tarea_programada
                 {
                     for (int c = 0; c < 5; c++)
                     {
-                        ListaMatrices[i][f][c].Visible = false;
+                        ListaMatrices[i][f][c].Visible = false;                        
                     }
                 }
             }
@@ -177,7 +181,32 @@ namespace Primer_tarea_programada
 
         private void btnResolver_Click(object sender, EventArgs e)
         {
-            int[,] matriz_a = new int[5,5];
+            
+            /*// validacion de campos vacios
+            for(int i = 0; i < 2; i++)
+            {
+                for (int f = 0; f < filas; f++)
+                {
+                    for (int c = 0; c < columnas; c++)
+                    {
+                        if (ListaMatrices[i][f][c].Text.Length == 0) // si algun campo no tiene nada escrito
+                        {
+                            lbl1.Visible = true;
+                            lbl2.Visible = true;
+                            lbl3.Visible = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int f = 0; f < filas; f++)
+            {
+                for(int c = 0; c < columnas; c++)
+                {
+                    matrizA[f,c] = int.Parse(ListaMatrices[0][f][c].Text);
+                }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -193,8 +222,6 @@ namespace Primer_tarea_programada
         /// <summary>
         /// Boton que genera (crea) la matriz
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             OcultarCajas();
@@ -216,13 +243,13 @@ namespace Primer_tarea_programada
                 }
                 else
                 {
-                    filas = int.Parse(txtFilas.Text);
-                    columnas = int.Parse(txtColumnas.Text);
-
                     if ((filas <= 5 & columnas <= 5) & (filas > 0 & columnas > 0))
                     {
                         lblMsg.Text = "Matriz creada de manera exitosa.";
                         lblMsg.ForeColor = Color.Green;
+
+                        filas = int.Parse(txtFilas.Text);
+                        columnas = int.Parse(txtColumnas.Text);
 
                         for (int i = 0; i < 2; i++)
                         {
@@ -243,6 +270,5 @@ namespace Primer_tarea_programada
                 }
             }
         }
-
     }
 }

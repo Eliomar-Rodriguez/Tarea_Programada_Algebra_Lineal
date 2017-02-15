@@ -119,6 +119,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtFilas
@@ -845,13 +848,12 @@
             // btnResolver
             // 
             this.btnResolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResolver.Location = new System.Drawing.Point(729, 371);
+            this.btnResolver.Location = new System.Drawing.Point(729, 334);
             this.btnResolver.Name = "btnResolver";
             this.btnResolver.Size = new System.Drawing.Size(179, 40);
             this.btnResolver.TabIndex = 4;
             this.btnResolver.Text = "Resolver";
             this.btnResolver.UseVisualStyleBackColor = true;
-            this.btnResolver.Visible = false;
             this.btnResolver.Click += new System.EventHandler(this.btnResolver_Click);
             // 
             // lblMatFin
@@ -975,12 +977,54 @@
             this.lblMsg.Size = new System.Drawing.Size(0, 25);
             this.lblMsg.TabIndex = 177;
             // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.BackColor = System.Drawing.Color.Transparent;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.Color.Red;
+            this.lbl1.Location = new System.Drawing.Point(767, 386);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(117, 25);
+            this.lbl1.TabIndex = 178;
+            this.lbl1.Text = "No pueden";
+            this.lbl1.Visible = false;
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.BackColor = System.Drawing.Color.Transparent;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.ForeColor = System.Drawing.Color.Red;
+            this.lbl2.Location = new System.Drawing.Point(747, 412);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(159, 25);
+            this.lbl2.TabIndex = 179;
+            this.lbl2.Text = "haber espacios";
+            this.lbl2.Visible = false;
+            // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.BackColor = System.Drawing.Color.Transparent;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.ForeColor = System.Drawing.Color.Red;
+            this.lbl3.Location = new System.Drawing.Point(732, 437);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(191, 25);
+            this.lbl3.TabIndex = 180;
+            this.lbl3.Text = "vacios en la matriz";
+            this.lbl3.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1258, 623);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -1173,6 +1217,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
     }
 }
 
