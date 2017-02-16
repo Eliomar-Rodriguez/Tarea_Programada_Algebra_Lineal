@@ -965,7 +965,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(415, 37);
+            this.label5.Location = new System.Drawing.Point(412, 36);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 25);
@@ -976,11 +976,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(378, 65);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(381, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 32);
+            this.label7.Size = new System.Drawing.Size(31, 29);
             this.label7.TabIndex = 174;
             this.label7.Text = "X";
             // 
@@ -1115,7 +1115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(261, 37);
+            this.label6.Location = new System.Drawing.Point(250, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 25);
@@ -1127,14 +1127,15 @@
             // 
             this.CmbMatriz.DisplayMember = "A,B";
             this.CmbMatriz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMatriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbMatriz.FormattingEnabled = true;
             this.CmbMatriz.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.CmbMatriz.Location = new System.Drawing.Point(266, 65);
+            this.CmbMatriz.Location = new System.Drawing.Point(255, 65);
             this.CmbMatriz.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbMatriz.Name = "CmbMatriz";
-            this.CmbMatriz.Size = new System.Drawing.Size(46, 28);
+            this.CmbMatriz.Size = new System.Drawing.Size(46, 33);
             this.CmbMatriz.TabIndex = 183;
             this.CmbMatriz.SelectedIndexChanged += new System.EventHandler(this.CmbMatriz_SelectedIndexChanged);
             // 
@@ -1142,6 +1143,7 @@
             // 
             this.CmbFilas.DisplayMember = "1,2,3,4,5";
             this.CmbFilas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFilas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbFilas.FormattingEnabled = true;
             this.CmbFilas.Items.AddRange(new object[] {
             "1",
@@ -1152,12 +1154,13 @@
             this.CmbFilas.Location = new System.Drawing.Point(324, 65);
             this.CmbFilas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbFilas.Name = "CmbFilas";
-            this.CmbFilas.Size = new System.Drawing.Size(51, 28);
+            this.CmbFilas.Size = new System.Drawing.Size(51, 33);
             this.CmbFilas.TabIndex = 184;
             // 
             // CmbColumn
             // 
             this.CmbColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbColumn.FormattingEnabled = true;
             this.CmbColumn.Items.AddRange(new object[] {
             "1",
@@ -1165,10 +1168,10 @@
             "3",
             "4",
             "5"});
-            this.CmbColumn.Location = new System.Drawing.Point(420, 65);
+            this.CmbColumn.Location = new System.Drawing.Point(417, 64);
             this.CmbColumn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbColumn.Name = "CmbColumn";
-            this.CmbColumn.Size = new System.Drawing.Size(49, 28);
+            this.CmbColumn.Size = new System.Drawing.Size(49, 33);
             this.CmbColumn.TabIndex = 185;
             // 
             // Form1
