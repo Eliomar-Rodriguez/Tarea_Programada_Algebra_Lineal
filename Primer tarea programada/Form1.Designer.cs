@@ -886,7 +886,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label5.Location = new System.Drawing.Point(277, 24);
+
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 17);
             this.label5.TabIndex = 172;
@@ -900,6 +902,7 @@
             this.label7.Location = new System.Drawing.Point(252, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 24);
+
             this.label7.TabIndex = 174;
             this.label7.Text = "X";
             // 
@@ -1030,7 +1033,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label6.Location = new System.Drawing.Point(171, 24);
+
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 182;
@@ -1041,6 +1046,7 @@
             // 
             this.CmbMatriz.DisplayMember = "A,B";
             this.CmbMatriz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMatriz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbMatriz.FormattingEnabled = true;
             this.CmbMatriz.Items.AddRange(new object[] {
             "A",
@@ -1048,6 +1054,7 @@
             this.CmbMatriz.Location = new System.Drawing.Point(177, 42);
             this.CmbMatriz.Name = "CmbMatriz";
             this.CmbMatriz.Size = new System.Drawing.Size(32, 21);
+
             this.CmbMatriz.TabIndex = 183;
             this.CmbMatriz.SelectedIndexChanged += new System.EventHandler(this.CmbMatriz_SelectedIndexChanged);
             // 
@@ -1055,6 +1062,7 @@
             // 
             this.CmbFilas.DisplayMember = "1,2,3,4,5";
             this.CmbFilas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFilas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbFilas.FormattingEnabled = true;
             this.CmbFilas.Items.AddRange(new object[] {
             "1",
@@ -1064,12 +1072,15 @@
             "5"});
             this.CmbFilas.Location = new System.Drawing.Point(216, 42);
             this.CmbFilas.Name = "CmbFilas";
+
             this.CmbFilas.Size = new System.Drawing.Size(35, 21);
+
             this.CmbFilas.TabIndex = 184;
             // 
             // CmbColumn
             // 
             this.CmbColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbColumn.FormattingEnabled = true;
             this.CmbColumn.Items.AddRange(new object[] {
             "1",
