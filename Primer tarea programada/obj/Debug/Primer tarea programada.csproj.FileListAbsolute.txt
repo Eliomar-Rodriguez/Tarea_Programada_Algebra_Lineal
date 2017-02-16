@@ -16,3 +16,6 @@ C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\obj\Debug\Primer_ta
 C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\obj\Debug\Primer tarea programada.csproj.GenerateResource.Cache
 C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\bin\Debug\Primer tarea programada.exe
 C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\bin\Debug\Primer tarea programada.pdb
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\bin\Debug\Primer tarea programada.exe.config
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.exe
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.pdb
