@@ -67,7 +67,7 @@ namespace Primer_tarea_programada
                     ListaMatrices[x].Add(new List<System.Windows.Forms.TextBox>());
                 }
             }
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 3; x++)
             {
                 matrizLog.Add(new List<List<int>>());
                 for (int y = 0; y < 5; y++)
@@ -206,7 +206,7 @@ namespace Primer_tarea_programada
 
         private void btnResolver_Click(object sender, EventArgs e)
         {
-
+            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
             /*// validacion de campos vacios
             for(int i = 0; i < 2; i++)
             {
@@ -234,9 +234,26 @@ namespace Primer_tarea_programada
             }*/
         }
 
+        private void transpuesta(int matriz)
+        {
+            int aux = 0;
+            for(int x = 0; x < 5; x++)
+            {
+                for (int y = 0; y < 5; y++)
+                {
+                    aux = matrizLog[matriz][x][y];
+                    matrizLog[matriz][x][y] = matrizLog[matriz][y][x];
+                    matrizLog[matriz][y][x] = aux;
+                    ListaMatrices[matriz][x][y].Text = matrizLog[matriz][x][y].ToString();
+                    ListaMatrices[matriz][y][x].Text = matrizLog[matriz][y][x].ToString();
+                }
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
+            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
+            transpuesta(CmbMatriz.SelectedIndex);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -332,7 +349,7 @@ namespace Primer_tarea_programada
                 for(int z = 0; z <= c; z++)
                 {
                     Console.WriteLine(matrizLog[x][y][z]);
-                    matrizLog[x][y][z] = matrizLog[x][y][z]-(2* matrizLog[x][y][z]);
+                    matrizLog[x][y][z] = matrizLog[x][y][z] * -1;
                     ListaMatrices[x][y][z].Text = matrizLog[x][y][z].ToString();
                 }
             }
@@ -357,12 +374,13 @@ namespace Primer_tarea_programada
 
         private void button3_Click(object sender, EventArgs e)
         {
+            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
             negativo(CmbMatriz.SelectedIndex,CmbFilas.SelectedIndex,CmbColumn.SelectedIndex);
         }
 
         private void a11_TextChanged(object sender, EventArgs e)
         {
-
+            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
         }
 
         private void textBox55_TextChanged(object sender, EventArgs e)
@@ -470,6 +488,14 @@ namespace Primer_tarea_programada
         private void textBox77_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void a12_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void a13_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
