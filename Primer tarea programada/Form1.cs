@@ -16,10 +16,13 @@ namespace Primer_tarea_programada
         /// lista que contiene las 3 matrices (a, b, c)
         /// </summary>
         List<List<List<TextBox>>> ListaMatrices = new List<List<List<TextBox>>>();
-
+        /// <summary>
+        /// Matriz logica en donde se guardan los numeros que son ingresados a la matrz visual (cajas de texto)
+        /// </summary>
         List<List<List<int>>> matrizLog = new List<List<List<int>>>();
 
         List<List<int>> dimensiones = new List<List<int>>();
+
 
         public Form1()
         {
@@ -362,9 +365,111 @@ namespace Primer_tarea_programada
 
         }
 
+        private void textBox55_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox56_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox59_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox60_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox63_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox64_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox65_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox66_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox69_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox70_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox73_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox74_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox75_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox76_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox54_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox57_TextChanged(object sender, EventArgs e)
+
+        {
+
+        }
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
+        }
+
+        private void textBox61_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox67_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox71_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox77_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
