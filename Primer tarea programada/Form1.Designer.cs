@@ -116,8 +116,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -1027,41 +1025,13 @@
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.Color.Red;
-            this.lbl1.Location = new System.Drawing.Point(366, 532);
+            this.lbl1.Location = new System.Drawing.Point(361, 508);
             this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(117, 25);
             this.lbl1.TabIndex = 178;
             this.lbl1.Text = "No pueden";
             this.lbl1.Visible = false;
-            // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.BackColor = System.Drawing.Color.Transparent;
-            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.ForeColor = System.Drawing.Color.Red;
-            this.lbl2.Location = new System.Drawing.Point(585, 494);
-            this.lbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(159, 25);
-            this.lbl2.TabIndex = 179;
-            this.lbl2.Text = "haber espacios";
-            this.lbl2.Visible = false;
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.BackColor = System.Drawing.Color.Transparent;
-            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.ForeColor = System.Drawing.Color.Red;
-            this.lbl3.Location = new System.Drawing.Point(818, 509);
-            this.lbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(191, 25);
-            this.lbl3.TabIndex = 180;
-            this.lbl3.Text = "vacios en la matriz";
-            this.lbl3.Visible = false;
             // 
             // panel1
             // 
@@ -1185,8 +1155,6 @@
             this.Controls.Add(this.CmbMatriz);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.button2);
@@ -1374,8 +1342,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
