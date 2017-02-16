@@ -148,7 +148,7 @@
             this.a11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.a11.Name = "a11";
             this.a11.Size = new System.Drawing.Size(82, 35);
-            this.a11.TabIndex = 8;
+            this.a11.TabIndex = 4;
             this.a11.Visible = false;
             this.a11.TextChanged += new System.EventHandler(this.a11_TextChanged);
             // 
@@ -893,14 +893,15 @@
             // 
             // btnResolver
             // 
-            this.btnResolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResolver.Location = new System.Drawing.Point(980, 269);
+            this.btnResolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResolver.Location = new System.Drawing.Point(980, 274);
             this.btnResolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResolver.Name = "btnResolver";
             this.btnResolver.Size = new System.Drawing.Size(64, 40);
             this.btnResolver.TabIndex = 4;
             this.btnResolver.Text = "=";
             this.btnResolver.UseVisualStyleBackColor = true;
+            this.btnResolver.Visible = false;
             this.btnResolver.Click += new System.EventHandler(this.btnResolver_Click);
             // 
             // lblMatFin
@@ -908,7 +909,7 @@
             this.lblMatFin.AutoSize = true;
             this.lblMatFin.BackColor = System.Drawing.Color.Transparent;
             this.lblMatFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatFin.Location = new System.Drawing.Point(1056, 134);
+            this.lblMatFin.Location = new System.Drawing.Point(1056, 140);
             this.lblMatFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMatFin.Name = "lblMatFin";
             this.lblMatFin.Size = new System.Drawing.Size(139, 29);
@@ -932,7 +933,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(528, 134);
+            this.label4.Location = new System.Drawing.Point(528, 140);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 29);
@@ -942,11 +943,11 @@
             // btnGenerar
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.Location = new System.Drawing.Point(533, 58);
+            this.btnGenerar.Location = new System.Drawing.Point(533, 62);
             this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(117, 40);
-            this.btnGenerar.TabIndex = 2;
+            this.btnGenerar.TabIndex = 3;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.button1_Click_1);
@@ -979,7 +980,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(380, 66);
+            this.label7.Location = new System.Drawing.Point(380, 64);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 32);
@@ -1003,12 +1004,13 @@
             this.lblMsg.BackColor = System.Drawing.Color.Transparent;
             this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblMsg.Location = new System.Drawing.Point(470, 277);
+            this.lblMsg.Location = new System.Drawing.Point(469, 274);
             this.lblMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMsg.Name = "lblMsg";
             this.lblMsg.Size = new System.Drawing.Size(35, 32);
             this.lblMsg.TabIndex = 177;
             this.lblMsg.Text = "X";
+            this.lblMsg.Visible = false;
             // 
             // lbl1
             // 
@@ -1016,12 +1018,12 @@
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.Color.Red;
-            this.lbl1.Location = new System.Drawing.Point(256, 431);
+            this.lbl1.Location = new System.Drawing.Point(215, 424);
             this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(455, 25);
+            this.lbl1.Size = new System.Drawing.Size(537, 25);
             this.lbl1.TabIndex = 178;
-            this.lbl1.Text = "No pueden haber espacios vacios en la matriz";
+            this.lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz";
             this.lbl1.Visible = false;
             // 
             // panel1
@@ -1032,10 +1034,10 @@
             this.panel1.Controls.Add(this.radioResta);
             this.panel1.Controls.Add(this.radioSuma);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(718, 22);
+            this.panel1.Location = new System.Drawing.Point(705, 22);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 83);
+            this.panel1.Size = new System.Drawing.Size(658, 83);
             this.panel1.TabIndex = 181;
             // 
             // label8
@@ -1060,6 +1062,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Multiplicar M por un numero";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioMulti
             // 
@@ -1073,6 +1076,7 @@
             this.radioMulti.TabStop = true;
             this.radioMulti.Text = "Multiplicar";
             this.radioMulti.UseVisualStyleBackColor = true;
+            this.radioMulti.CheckedChanged += new System.EventHandler(this.radioMulti_CheckedChanged);
             // 
             // radioResta
             // 
@@ -1086,6 +1090,7 @@
             this.radioResta.TabStop = true;
             this.radioResta.Text = "Resta";
             this.radioResta.UseVisualStyleBackColor = true;
+            this.radioResta.CheckedChanged += new System.EventHandler(this.radioResta_CheckedChanged);
             // 
             // radioSuma
             // 
@@ -1124,7 +1129,7 @@
             this.CmbMatriz.Location = new System.Drawing.Point(242, 64);
             this.CmbMatriz.Name = "CmbMatriz";
             this.CmbMatriz.Size = new System.Drawing.Size(52, 34);
-            this.CmbMatriz.TabIndex = 183;
+            this.CmbMatriz.TabIndex = 0;
             this.CmbMatriz.SelectedIndexChanged += new System.EventHandler(this.CmbMatriz_SelectedIndexChanged);
             // 
             // CmbFilas
@@ -1139,11 +1144,11 @@
             "3",
             "4",
             "5"});
-            this.CmbFilas.Location = new System.Drawing.Point(322, 65);
+            this.CmbFilas.Location = new System.Drawing.Point(322, 64);
             this.CmbFilas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbFilas.Name = "CmbFilas";
             this.CmbFilas.Size = new System.Drawing.Size(52, 34);
-            this.CmbFilas.TabIndex = 184;
+            this.CmbFilas.TabIndex = 1;
             // 
             // CmbColumn
             // 
@@ -1156,11 +1161,11 @@
             "3",
             "4",
             "5"});
-            this.CmbColumn.Location = new System.Drawing.Point(420, 65);
+            this.CmbColumn.Location = new System.Drawing.Point(420, 64);
             this.CmbColumn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CmbColumn.Name = "CmbColumn";
             this.CmbColumn.Size = new System.Drawing.Size(52, 34);
-            this.CmbColumn.TabIndex = 185;
+            this.CmbColumn.TabIndex = 2;
             // 
             // btnneg
             // 
@@ -1169,7 +1174,7 @@
             this.btnneg.Margin = new System.Windows.Forms.Padding(2);
             this.btnneg.Name = "btnneg";
             this.btnneg.Size = new System.Drawing.Size(52, 34);
-            this.btnneg.TabIndex = 186;
+            this.btnneg.TabIndex = 4;
             this.btnneg.Text = "-1";
             this.btnneg.UseVisualStyleBackColor = true;
             this.btnneg.Click += new System.EventHandler(this.button3_Click);
