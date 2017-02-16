@@ -206,7 +206,8 @@ namespace Primer_tarea_programada
 
         private void btnResolver_Click(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
+            guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+            guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
             /*// validacion de campos vacios
             for(int i = 0; i < 2; i++)
             {
@@ -234,62 +235,37 @@ namespace Primer_tarea_programada
             }*/
         }
 
-        private void transpuesta(int matriz)
+        private void actVistaM(int matriz)
         {
-            int aux = 0;
             for(int x = 0; x < 5; x++)
             {
                 for (int y = 0; y < 5; y++)
-                {
-                    aux = matrizLog[matriz][x][y];
-                    matrizLog[matriz][x][y] = matrizLog[matriz][y][x];
-                    matrizLog[matriz][y][x] = aux;
-                    ListaMatrices[matriz][x][y].Text = matrizLog[matriz][x][y].ToString();
-                    ListaMatrices[matriz][y][x].Text = matrizLog[matriz][y][x].ToString();
-                }
+                    if(ListaMatrices[matriz][x][y].Visible)
+                        ListaMatrices[matriz][x][y].Text = matrizLog[matriz][x][y].ToString();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void borrarInv(int matriz)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
-            transpuesta(CmbMatriz.SelectedIndex);
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CmbMatriz_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void limpmatLog(int x)
-        {
-            for (int y = 0; y < 5; y++)
+            for (int a = 0; a < 5; a++)
             {
-                for (int z = 0; z < 5; z++)
+                for (int b = 0; b < 5; b++)
                 {
-                    matrizLog[x][y][z] = 0;
+                    if (!ListaMatrices[matriz][a][b].Visible)
+                    {
+                        matrizLog[matriz][a][b] = 0;
+                        ListaMatrices[matriz][a][b].Text = "";
+                    }
                 }
             }
         }
 
         private void cambiodim(int x, int y, int z)
         {
-            for (int a = 0; a <= y; a++)
+            for (int a = 0; a < 5; a++)
             {
-                for (int b = 0; b <= z; b++)
+                for (int b = 0; b < 5; b++)
                 {
-                    if (!ListaMatrices[x][a][b].Visible)
-                        ListaMatrices[x][a][b].Text = "";
                     if (a <= y && b <= z)
                     {
                         ListaMatrices[x][a][b].Visible = true;
@@ -324,12 +300,66 @@ namespace Primer_tarea_programada
                 radioMulti.Enabled = false;
             }
         }
+
+        private void transpuesta(int matriz)
+        {
+            int aux = 0;
+            for (int x = 0; x < 5; x++)
+            {
+                for (int y = 0; y < x; y++)
+                {
+                    aux = matrizLog[matriz][x][y];
+                    matrizLog[matriz][x][y] = matrizLog[matriz][y][x];
+                    matrizLog[matriz][y][x] = aux;
+                }
+            }
+            cambiodim(matriz, dimensiones[matriz][1], dimensiones[matriz][0]);
+            actVistaM(matriz);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+            transpuesta(CmbMatriz.SelectedIndex);
+            borrarInv(CmbMatriz.SelectedIndex);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CmbMatriz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void limpmatLog(int x)
+        {
+            for (int y = 0; y < 5; y++)
+            {
+                for (int z = 0; z < 5; z++)
+                {
+                    matrizLog[x][y][z] = 0;
+                }
+            }
+        }
+
         /// <summary>
         /// Boton que genera (crea) la matriz
         /// </summary>
+        /// 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
             cambiodim(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
+            borrarInv(CmbMatriz.SelectedIndex);
+            actVistaM(CmbMatriz.SelectedIndex);
         }
 
         private void negativo(int x, int f, int c)
@@ -374,13 +404,12 @@ namespace Primer_tarea_programada
 
         private void button3_Click(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
-            negativo(CmbMatriz.SelectedIndex,CmbFilas.SelectedIndex,CmbColumn.SelectedIndex);
+            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+            negativo(CmbMatriz.SelectedIndex,dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
         }
 
         private void a11_TextChanged(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
         }
 
         private void textBox55_TextChanged(object sender, EventArgs e)
@@ -462,12 +491,6 @@ namespace Primer_tarea_programada
 
         {
 
-        }
-
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
         }
 
         private void textBox61_TextChanged(object sender, EventArgs e)

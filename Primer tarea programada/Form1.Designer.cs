@@ -112,7 +112,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnT = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -125,7 +125,7 @@
             this.CmbMatriz = new System.Windows.Forms.ComboBox();
             this.CmbFilas = new System.Windows.Forms.ComboBox();
             this.CmbColumn = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnneg = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -903,16 +903,16 @@
             this.label7.TabIndex = 174;
             this.label7.Text = "X";
             // 
-            // button1
+            // btnT
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(216, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 30);
-            this.button1.TabIndex = 175;
-            this.button1.Text = "T";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnT.Location = new System.Drawing.Point(216, 72);
+            this.btnT.Name = "btnT";
+            this.btnT.Size = new System.Drawing.Size(35, 30);
+            this.btnT.TabIndex = 175;
+            this.btnT.Text = "T";
+            this.btnT.UseVisualStyleBackColor = true;
+            this.btnT.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblMsg
             // 
@@ -1074,16 +1074,16 @@
             this.CmbColumn.Size = new System.Drawing.Size(34, 24);
             this.CmbColumn.TabIndex = 185;
             // 
-            // button3
+            // btnneg
             // 
-            this.button3.Location = new System.Drawing.Point(174, 71);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 31);
-            this.button3.TabIndex = 186;
-            this.button3.Text = "-1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnneg.Location = new System.Drawing.Point(174, 71);
+            this.btnneg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnneg.Name = "btnneg";
+            this.btnneg.Size = new System.Drawing.Size(37, 31);
+            this.btnneg.TabIndex = 186;
+            this.btnneg.Text = "-1";
+            this.btnneg.UseVisualStyleBackColor = true;
+            this.btnneg.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -1091,7 +1091,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1050, 372);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnneg);
             this.Controls.Add(this.CmbColumn);
             this.Controls.Add(this.CmbFilas);
             this.Controls.Add(this.CmbMatriz);
@@ -1099,7 +1099,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblMsg);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnT);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -1280,7 +1280,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnT;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Panel panel1;
@@ -1291,7 +1291,7 @@
         private System.Windows.Forms.ComboBox CmbMatriz;
         private System.Windows.Forms.ComboBox CmbFilas;
         private System.Windows.Forms.ComboBox CmbColumn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnneg;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radioButton1;
     }
