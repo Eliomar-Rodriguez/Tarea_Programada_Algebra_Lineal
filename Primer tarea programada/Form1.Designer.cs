@@ -116,16 +116,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioMulti = new System.Windows.Forms.RadioButton();
+            this.radioResta = new System.Windows.Forms.RadioButton();
+            this.radioSuma = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.CmbMatriz = new System.Windows.Forms.ComboBox();
             this.CmbFilas = new System.Windows.Forms.ComboBox();
             this.CmbColumn = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,6 +150,7 @@
             this.a11.Size = new System.Drawing.Size(56, 26);
             this.a11.TabIndex = 8;
             this.a11.Visible = false;
+            this.a11.TextChanged += new System.EventHandler(this.a11_TextChanged);
             // 
             // a12
             // 
@@ -908,9 +911,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(280, 81);
+            this.button1.Location = new System.Drawing.Point(177, 69);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 33);
+            this.button1.Size = new System.Drawing.Size(32, 20);
             this.button1.TabIndex = 175;
             this.button1.Text = "T";
             this.button1.UseVisualStyleBackColor = true;
@@ -945,81 +948,60 @@
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.Color.Red;
-            this.lbl1.Location = new System.Drawing.Point(244, 346);
+            this.lbl1.Location = new System.Drawing.Point(161, 327);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(87, 17);
+            this.lbl1.Size = new System.Drawing.Size(344, 17);
             this.lbl1.TabIndex = 178;
-            this.lbl1.Text = "No pueden";
+            this.lbl1.Text = "No pueden haber espacios vacios en la matriz";
             this.lbl1.Visible = false;
-            // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.BackColor = System.Drawing.Color.Transparent;
-            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.ForeColor = System.Drawing.Color.Red;
-            this.lbl2.Location = new System.Drawing.Point(390, 321);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(119, 17);
-            this.lbl2.TabIndex = 179;
-            this.lbl2.Text = "haber espacios";
-            this.lbl2.Visible = false;
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.BackColor = System.Drawing.Color.Transparent;
-            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.ForeColor = System.Drawing.Color.Red;
-            this.lbl3.Location = new System.Drawing.Point(545, 331);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(144, 17);
-            this.lbl3.TabIndex = 180;
-            this.lbl3.Text = "vacios en la matriz";
-            this.lbl3.Visible = false;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(477, 44);
+            this.panel1.Controls.Add(this.radioMulti);
+            this.panel1.Controls.Add(this.radioResta);
+            this.panel1.Controls.Add(this.radioSuma);
+            this.panel1.Location = new System.Drawing.Point(477, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(226, 27);
+            this.panel1.Size = new System.Drawing.Size(445, 59);
             this.panel1.TabIndex = 181;
             // 
-            // radioButton1
+            // radioMulti
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(52, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Suma";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioMulti.AutoSize = true;
+            this.radioMulti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioMulti.Location = new System.Drawing.Point(145, 34);
+            this.radioMulti.Name = "radioMulti";
+            this.radioMulti.Size = new System.Drawing.Size(86, 20);
+            this.radioMulti.TabIndex = 2;
+            this.radioMulti.TabStop = true;
+            this.radioMulti.Text = "Multiplicar";
+            this.radioMulti.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioResta
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(60, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Resta";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioResta.AutoSize = true;
+            this.radioResta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioResta.Location = new System.Drawing.Point(77, 34);
+            this.radioResta.Name = "radioResta";
+            this.radioResta.Size = new System.Drawing.Size(62, 20);
+            this.radioResta.TabIndex = 1;
+            this.radioResta.TabStop = true;
+            this.radioResta.Text = "Resta";
+            this.radioResta.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioSuma
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(119, 3);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(72, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Multiplicar";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioSuma.AutoSize = true;
+            this.radioSuma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioSuma.Location = new System.Drawing.Point(10, 34);
+            this.radioSuma.Name = "radioSuma";
+            this.radioSuma.Size = new System.Drawing.Size(61, 20);
+            this.radioSuma.TabIndex = 0;
+            this.radioSuma.TabStop = true;
+            this.radioSuma.Text = "Suma";
+            this.radioSuma.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -1076,19 +1058,61 @@
             this.CmbColumn.Size = new System.Drawing.Size(28, 21);
             this.CmbColumn.TabIndex = 185;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(215, 69);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(31, 20);
+            this.button3.TabIndex = 186;
+            this.button3.Text = "-1";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(277, 69);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(66, 20);
+            this.button4.TabIndex = 187;
+            this.button4.Text = "SaveDat";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(237, 34);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(188, 20);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Multiplicar M por un numero";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(5, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 18);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Operaciones";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1019, 372);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.CmbColumn);
             this.Controls.Add(this.CmbFilas);
             this.Controls.Add(this.CmbMatriz);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.button2);
@@ -1277,16 +1301,18 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioMulti;
+        private System.Windows.Forms.RadioButton radioResta;
+        private System.Windows.Forms.RadioButton radioSuma;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CmbMatriz;
         private System.Windows.Forms.ComboBox CmbFilas;
         private System.Windows.Forms.ComboBox CmbColumn;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 
