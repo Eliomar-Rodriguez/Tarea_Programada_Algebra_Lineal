@@ -16,8 +16,13 @@ namespace Primer_tarea_programada
         /// lista que contiene las 3 matrices (a, b, c)
         /// </summary>
         List<List<List<TextBox>>> ListaMatrices = new List<List<List<TextBox>>>();
+        /// <summary>
+        /// Matriz logica en donde se guardan los numeros que son ingresados a la matrz visual (cajas de texto)
+        /// </summary>
+        List<List<List<int>>> matrizLog = new List<List<List<int>>>();
 
-        List<List<int>> dimensiones=new List<List<int>>();
+        List<List<int>> dimensiones = new List<List<int>>();
+
 
         public Form1()
         {
@@ -28,6 +33,12 @@ namespace Primer_tarea_programada
             CmbFilas.Update();
             CmbColumn.SelectedIndex = 0;
             CmbColumn.Update();
+            dimensiones.Add(new List<int>());
+            dimensiones.Add(new List<int>());
+            dimensiones[0].Add(0);
+            dimensiones[0].Add(0);
+            dimensiones[1].Add(0);
+            dimensiones[1].Add(0);
 
         }
 
@@ -54,6 +65,18 @@ namespace Primer_tarea_programada
                 for (int y = 0; y < 5; y++)
                 {
                     ListaMatrices[x].Add(new List<System.Windows.Forms.TextBox>());
+                }
+            }
+            for (int x = 0; x < 4; x++)
+            {
+                matrizLog.Add(new List<List<int>>());
+                for (int y = 0; y < 5; y++)
+                {
+                    matrizLog[x].Add(new List<int>());
+                    for (int z = 0; z < 5; z++)
+                    {
+                        matrizLog[x][y].Add(0);
+                    }
                 }
             }
             // matriz a
@@ -100,27 +123,27 @@ namespace Primer_tarea_programada
             ListaMatrices[1][1].Add(b23);
             ListaMatrices[1][1].Add(b24);
             ListaMatrices[1][1].Add(b25);
-       
+
             ListaMatrices[1][2].Add(b31);
             ListaMatrices[1][2].Add(b32);
             ListaMatrices[1][2].Add(b33);
             ListaMatrices[1][2].Add(b34);
             ListaMatrices[1][2].Add(b35);
-        
+
             ListaMatrices[1][3].Add(b41);
             ListaMatrices[1][3].Add(b42);
             ListaMatrices[1][3].Add(b43);
             ListaMatrices[1][3].Add(b44);
             ListaMatrices[1][3].Add(b45);
-        
+
             ListaMatrices[1][4].Add(b51);
             ListaMatrices[1][4].Add(b52);
             ListaMatrices[1][4].Add(b53);
             ListaMatrices[1][4].Add(b54);
             ListaMatrices[1][4].Add(b55);
-        
+
         }
-    
+
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -164,9 +187,9 @@ namespace Primer_tarea_programada
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
-        
+
         /// <summary>
         /// Función encargada de poner false en la propiedad visible de todas las cajas de la matriz 5x5 que se pueden trabajar
         /// </summary>
@@ -176,14 +199,14 @@ namespace Primer_tarea_programada
             {
                 for (int c = 0; c < 5; c++)
                 {
-                    ListaMatrices[matriz][f][c].Visible = false;                        
+                    ListaMatrices[matriz][f][c].Visible = false;
                 }
             }
         }
 
         private void btnResolver_Click(object sender, EventArgs e)
         {
-            
+
             /*// validacion de campos vacios
             for(int i = 0; i < 2; i++)
             {
@@ -231,19 +254,115 @@ namespace Primer_tarea_programada
 
         }
 
+        private void limpmatLog(int x)
+        {
+            for (int y = 0; y < 5; y++)
+            {
+                for (int z = 0; z < 5; z++)
+                {
+                    matrizLog[x][y][z] = 0;
+                }
+            }
+        }
+
+        private void cambiodim(int x, int y, int z)
+        {
+            for (int a = 0; a <= y; a++)
+            {
+                for (int b = 0; b <= z; b++)
+                {
+                    if (!ListaMatrices[x][a][b].Visible)
+                        ListaMatrices[x][a][b].Text = "";
+                    if (a <= y && b <= z)
+                    {
+                        ListaMatrices[x][a][b].Visible = true;
+                    }
+                    else
+                    {
+                        ListaMatrices[x][a][b].Visible = false;
+                    }
+                }
+            }
+            dimensiones[x][0] = y;
+            dimensiones[x][1] = z;
+            if (dimensiones[0][0] == dimensiones[1][0] && dimensiones[0][1] == dimensiones[1][1])
+            {
+                radioResta.Enabled = true;
+                radioSuma.Enabled = true;
+            }
+            else
+            {
+                radioResta.Checked = false;
+                radioSuma.Checked = false;
+                radioResta.Enabled = false;
+                radioSuma.Enabled = false;
+            }
+            if (dimensiones[0][1] == dimensiones[1][0])
+            {
+                radioMulti.Enabled = true;
+            }
+            else
+            {
+                radioMulti.Checked = false;
+                radioMulti.Enabled = false;
+            }
+        }
         /// <summary>
         /// Boton que genera (crea) la matriz
         /// </summary>
         private void button1_Click_1(object sender, EventArgs e)
         {
-            OcultarCajas(CmbMatriz.SelectedIndex);
-            for(int x = 0; x <= CmbFilas.SelectedIndex; x++)
+            cambiodim(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
+        }
+
+        private void negativo(int x, int f, int c)
+        {
+            /*codigo de alberth
+             for(int y=0; y <= dimensiones[x][0]; y++)
             {
-                for (int y = 0; y <= CmbColumn.SelectedIndex; y++)
+                for(int z = 0; z <= dimensiones[x][1]; z++)
                 {
-                    ListaMatrices[CmbMatriz.SelectedIndex][x][y].Visible = true;
+                    matrizLog[x][y][z] = matrizLog[x][y][z] * -1;
+                    ListaMatrices[x][y][z].Text = matrizLog[x][y][z].ToString();
                 }
             }
+             */
+            for (int y=0; y <= f; y++)
+            {
+                for(int z = 0; z <= c; z++)
+                {
+                    Console.WriteLine(matrizLog[x][y][z]);
+                    matrizLog[x][y][z] = matrizLog[x][y][z]-(2* matrizLog[x][y][z]);
+                    ListaMatrices[x][y][z].Text = matrizLog[x][y][z].ToString();
+                }
+            }
+        }
+        void guardarDatos(int m,int f, int c)
+        {
+            for(int x = 0; x <= f; x++)
+            {
+                for(int y = 0; y <= c; y++)
+                {
+                    if (ListaMatrices[m][x][y].Text.Length == 0)
+                    {
+                        lbl1.Visible = true;
+                    }
+                    else
+                    {
+                        matrizLog[m][x][y] = int.Parse(ListaMatrices[m][x][y].Text);
+                    }                    
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            negativo(CmbMatriz.SelectedIndex,CmbFilas.SelectedIndex,CmbColumn.SelectedIndex);
+        }
+
+        private void a11_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void textBox55_TextChanged(object sender, EventArgs e)
@@ -322,8 +441,15 @@ namespace Primer_tarea_programada
         }
 
         private void textBox57_TextChanged(object sender, EventArgs e)
+
         {
 
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            guardarDatos(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
         }
 
         private void textBox61_TextChanged(object sender, EventArgs e)
@@ -335,7 +461,13 @@ namespace Primer_tarea_programada
         {
 
         }
-
+        /// <summary>
+        /// Funcion para validar los datos ingresados en los campos de la matriz visual ya que solo pueden ser numeros enteros
+        /// </summary>
+        void validarEspacios()
+        {
+            
+        }
         private void textBox71_TextChanged(object sender, EventArgs e)
         {
 
