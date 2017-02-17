@@ -36,6 +36,7 @@ namespace Primer_tarea_programada
             radioResta.Enabled = false;
             radioSuma.Enabled = false;
             radioMulti.Enabled = false;
+            textOperador.Enabled = false;
 
             dimensiones.Add(new List<int>());
             dimensiones.Add(new List<int>());
