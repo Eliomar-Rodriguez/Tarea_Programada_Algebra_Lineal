@@ -80,6 +80,7 @@ namespace Primer_tarea_programada
                 }
             }
             // matriz a
+
             ListaMatrices[0][0].Add(a11);
             ListaMatrices[0][0].Add(a12);
             ListaMatrices[0][0].Add(a13);
@@ -142,6 +143,37 @@ namespace Primer_tarea_programada
             ListaMatrices[1][4].Add(b54);
             ListaMatrices[1][4].Add(b55);
 
+            // matriz resultado
+
+            ListaMatrices[2][0].Add(c11);
+            ListaMatrices[2][0].Add(c12);
+            ListaMatrices[2][0].Add(c13);
+            ListaMatrices[2][0].Add(c14);
+            ListaMatrices[2][0].Add(c15);
+
+            ListaMatrices[2][1].Add(c21);
+            ListaMatrices[2][1].Add(c22);
+            ListaMatrices[2][1].Add(c23);
+            ListaMatrices[2][1].Add(c24);
+            ListaMatrices[2][1].Add(c25);
+
+            ListaMatrices[2][2].Add(c31);
+            ListaMatrices[2][2].Add(c32);
+            ListaMatrices[2][2].Add(c33);
+            ListaMatrices[2][2].Add(c34);
+            ListaMatrices[2][2].Add(c35);
+
+            ListaMatrices[2][3].Add(c41);
+            ListaMatrices[2][3].Add(c42);
+            ListaMatrices[2][3].Add(c43);
+            ListaMatrices[2][3].Add(c44);
+            ListaMatrices[2][3].Add(c45);
+        
+            ListaMatrices[2][4].Add(c51);
+            ListaMatrices[2][4].Add(c52);
+            ListaMatrices[2][4].Add(c53);
+            ListaMatrices[2][4].Add(c54);
+            ListaMatrices[2][4].Add(c55);
         }
 
 
@@ -294,6 +326,13 @@ namespace Primer_tarea_programada
             {
                 radioResta.Enabled = true;
                 radioSuma.Enabled = true;
+                for(int f = 0; f <= CmbFilas.SelectedIndex; f++)
+                {
+                    for(int c = 0; c < CmbColumn.SelectedIndex; c++)
+                    {
+                        ListaMatrices[2][f][c].Visible = true;                    
+                    }
+                }
             }
             else
             {
@@ -305,6 +344,7 @@ namespace Primer_tarea_programada
             if (dimensiones[0][1] == dimensiones[1][0])
             {
                 radioMulti.Enabled = true;
+
             }
             else
             {
