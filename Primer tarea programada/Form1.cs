@@ -33,12 +33,19 @@ namespace Primer_tarea_programada
             CmbFilas.Update();
             CmbColumn.SelectedIndex = 0;
             CmbColumn.Update();
+            radioResta.Enabled = false;
+            radioSuma.Enabled = false;
+            radioMulti.Enabled = false;
+
+            dimensiones.Add(new List<int>());
             dimensiones.Add(new List<int>());
             dimensiones.Add(new List<int>());
             dimensiones[0].Add(0);
             dimensiones[0].Add(0);
             dimensiones[1].Add(0);
             dimensiones[1].Add(0);
+            dimensiones[2].Add(0);
+            dimensiones[2].Add(0);
 
         }
 
@@ -80,6 +87,7 @@ namespace Primer_tarea_programada
                 }
             }
             // matriz a
+
             ListaMatrices[0][0].Add(a11);
             ListaMatrices[0][0].Add(a12);
             ListaMatrices[0][0].Add(a13);
@@ -142,6 +150,37 @@ namespace Primer_tarea_programada
             ListaMatrices[1][4].Add(b54);
             ListaMatrices[1][4].Add(b55);
 
+            // matriz resultado
+
+            ListaMatrices[2][0].Add(c11);
+            ListaMatrices[2][0].Add(c12);
+            ListaMatrices[2][0].Add(c13);
+            ListaMatrices[2][0].Add(c14);
+            ListaMatrices[2][0].Add(c15);
+
+            ListaMatrices[2][1].Add(c21);
+            ListaMatrices[2][1].Add(c22);
+            ListaMatrices[2][1].Add(c23);
+            ListaMatrices[2][1].Add(c24);
+            ListaMatrices[2][1].Add(c25);
+
+            ListaMatrices[2][2].Add(c31);
+            ListaMatrices[2][2].Add(c32);
+            ListaMatrices[2][2].Add(c33);
+            ListaMatrices[2][2].Add(c34);
+            ListaMatrices[2][2].Add(c35);
+
+            ListaMatrices[2][3].Add(c41);
+            ListaMatrices[2][3].Add(c42);
+            ListaMatrices[2][3].Add(c43);
+            ListaMatrices[2][3].Add(c44);
+            ListaMatrices[2][3].Add(c45);
+        
+            ListaMatrices[2][4].Add(c51);
+            ListaMatrices[2][4].Add(c52);
+            ListaMatrices[2][4].Add(c53);
+            ListaMatrices[2][4].Add(c54);
+            ListaMatrices[2][4].Add(c55);
         }
 
 
@@ -203,36 +242,64 @@ namespace Primer_tarea_programada
                 }
             }
         }
-
-        private void btnResolver_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Funcion que resuelve la operacion de sumar
+        /// </summary>
+        void adicion(int operador)
         {
-            guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
-            guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
-            /*// validacion de campos vacios
-            for(int i = 0; i < 2; i++)
+            if (!validarCampos(0) & !validarCampos(1)) // si esta vacia
             {
-                for (int f = 0; f < filas; f++)
+                lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+                lbl1.Visible = true;
+            }
+            else
+            {
+                cambiodim(2,dimensiones[0][0],dimensiones[0][1]);
+                for(int m = 0; m < 2; m++)
                 {
-                    for (int c = 0; c < columnas; c++)
+                    for (int f = 0; f <= CmbFilas.SelectedIndex; f++)
                     {
-                        if (ListaMatrices[i][f][c].Text.Length == 0) // si algun campo no tiene nada escrito
+                        for (int c = 0; c <= CmbColumn.SelectedIndex; c++)
                         {
-                            lbl1.Visible = true;
-                            lbl2.Visible = true;
-                            lbl3.Visible = true;
-                            break;
+                            ListaMatrices[2][f][c].Text = (matrizLog[0][f][c] + operador*matrizLog[1][f][c]).ToString();
                         }
                     }
+                }                
+            }
+        }
+        /// <summary>
+        /// Boton que resuelve la operacion seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResolver_Click(object sender, EventArgs e)
+        {
+            OcultarCajas(2);
+            borrarInv(2);
+            if (radioButton1.Checked & validarCampos(CmbMatriz.SelectedIndex))
+            {
+                int z = 0;
+                if (int.TryParse(textOperador.Text, out z))
+                    multiReal(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1], z, 2);
+            }
+            else if (validarCampos(0) & validarCampos(1)) // si ambas funciones solo tienen numeros y no tiene espacios guarda datos
+            {
+                guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+                guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
+                if (radioSuma.Checked)
+                {
+                    adicion(1);
+                }
+                else if(radioResta.Checked)
+                {
+                    adicion(-1);
                 }
             }
-
-            for (int f = 0; f < filas; f++)
-            {
-                for(int c = 0; c < columnas; c++)
-                {
-                    matrizA[f,c] = int.Parse(ListaMatrices[0][f][c].Text);
-                }
-            }*/
+            else
+            {                
+                lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+                lbl1.Visible = true;
+            }           
         }
 
         private void actVistaM(int matriz)
@@ -282,6 +349,13 @@ namespace Primer_tarea_programada
             {
                 radioResta.Enabled = true;
                 radioSuma.Enabled = true;
+                for(int f = 0; f <= CmbFilas.SelectedIndex; f++)
+                {
+                    for(int c = 0; c < CmbColumn.SelectedIndex; c++)
+                    {
+                        ListaMatrices[2][f][c].Visible = true;                    
+                    }
+                }
             }
             else
             {
@@ -293,6 +367,7 @@ namespace Primer_tarea_programada
             if (dimensiones[0][1] == dimensiones[1][0])
             {
                 radioMulti.Enabled = true;
+
             }
             else
             {
@@ -319,9 +394,25 @@ namespace Primer_tarea_programada
 
         private void button1_Click(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
-            transpuesta(CmbMatriz.SelectedIndex);
-            borrarInv(CmbMatriz.SelectedIndex);
+            OcultarCajas(2);
+            borrarInv(2);
+            if (validarCampos(CmbMatriz.SelectedIndex)) // si la funcion retorna true entonces solamente tiene numeros y no tiene espacios
+            {
+                guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+                transpuesta(CmbMatriz.SelectedIndex);
+                borrarInv(CmbMatriz.SelectedIndex);
+            }
+            else
+            {
+                if (CmbMatriz.SelectedIndex == 0)
+                {
+                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz A";
+                }
+                else
+                {
+                    lbl1.Visible = true;
+                }
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -356,13 +447,13 @@ namespace Primer_tarea_programada
         /// 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+            //guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
             cambiodim(CmbMatriz.SelectedIndex, CmbFilas.SelectedIndex, CmbColumn.SelectedIndex);
             borrarInv(CmbMatriz.SelectedIndex);
-            actVistaM(CmbMatriz.SelectedIndex);
+            btnResolver.Visible = true;
         }
 
-        private void negativo(int x, int f, int c)
+        private void multiReal(int MatOrigen, int f, int c,int operador,int matDestino)
         {
             /*codigo de alberth
              for(int y=0; y <= dimensiones[x][0]; y++)
@@ -374,13 +465,15 @@ namespace Primer_tarea_programada
                 }
             }
              */
+            guardarDatos(MatOrigen,dimensiones[MatOrigen][0],dimensiones[MatOrigen][1]);
+            cambiodim(matDestino, dimensiones[MatOrigen][0], dimensiones[MatOrigen][1]);
             for (int y=0; y <= f; y++)
             {
                 for(int z = 0; z <= c; z++)
                 {
-                    Console.WriteLine(matrizLog[x][y][z]);
-                    matrizLog[x][y][z] = matrizLog[x][y][z] * -1;
-                    ListaMatrices[x][y][z].Text = matrizLog[x][y][z].ToString();
+                    Console.WriteLine(matrizLog[MatOrigen][y][z]);
+                    matrizLog[matDestino][y][z] = matrizLog[MatOrigen][y][z] * operador;
+                    ListaMatrices[matDestino][y][z].Text = matrizLog[matDestino][y][z].ToString();
                 }
             }
         }
@@ -401,11 +494,48 @@ namespace Primer_tarea_programada
                 }
             }
         }
-
+        /// <summary>
+        /// Funcion para validar los datos ingresados en las cajas de texto de la matriz visual
+        /// Retorna true si esta llena de numeros y false si tiene letras
+        /// </summary>
+        /// <param name="m">Matriz seleccionada por el jugador</param>
+        bool validarCampos(int m)
+        {
+            int num = 0;
+            for (int f = 0; f <= CmbFilas.SelectedIndex; f++) // recorriendo filas
+            {
+                for(int c = 0; c <= CmbColumn.SelectedIndex; c++) // recorriendo columnas
+                {
+                    if (ListaMatrices[m][f][c].Text.Length == 0 | int.TryParse(ListaMatrices[m][f][c].Text,out num) == false) // si esta caja de texto esta vacia alerta
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
-            guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
-            negativo(CmbMatriz.SelectedIndex,dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+            OcultarCajas(2);
+            borrarInv(2);
+            if (validarCampos(CmbMatriz.SelectedIndex)) // si la funcion retorna true entonces solamente tiene numeros y no tiene espacios
+            {
+                guardarDatos(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1]);
+                actVistaM(CmbMatriz.SelectedIndex);
+                multiReal(CmbMatriz.SelectedIndex, dimensiones[CmbMatriz.SelectedIndex][0], dimensiones[CmbMatriz.SelectedIndex][1],-1, CmbMatriz.SelectedIndex);
+            }
+            else
+            {
+                if (CmbMatriz.SelectedIndex == 0)
+                {
+                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz A";
+                }
+                else
+                {
+                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz B";
+                }                
+                lbl1.Visible = true;
+            }
         }
 
         private void a11_TextChanged(object sender, EventArgs e)
@@ -529,7 +659,31 @@ namespace Primer_tarea_programada
 
         private void radioSuma_CheckedChanged(object sender, EventArgs e)
         {
+            btnResolver.Visible = true;
+        }
 
+        private void radioResta_CheckedChanged(object sender, EventArgs e)
+        {
+            btnResolver.Visible = true;
+        }
+
+        private void radioMulti_CheckedChanged(object sender, EventArgs e)
+        {
+            btnResolver.Visible = true;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            btnResolver.Visible = true;
+            textOperador.Text = "";
+            if (radioButton1.Checked)
+            {
+                textOperador.Enabled = true;
+            }
+            else
+            {
+                textOperador.Enabled = false;
+            }
         }
     }
 }
