@@ -259,6 +259,26 @@ namespace Primer_tarea_programada
                 }                
             }
         }
+
+        /// <summary>
+        /// Funcion que resuelve la operacion de sumar
+        /// </summary>
+        void multiplicacion()
+        {
+            int fAux = 0;
+            for (int f = 0;f <= CmbFilas.SelectedIndex; f++)
+            {
+                int result = 0;
+                for (int c = 0; c <= CmbColumn.SelectedIndex; c++)
+                {
+                    ListaMatrices[2][f][c].Text = Convert.ToString(int.Parse(ListaMatrices[0][f][c].Text) * int.Parse(ListaMatrices[1][f][c].Text)); 
+                }
+                ListaMatrices[2][f][fAux].Text = Convert.ToString(result);
+                fAux++;
+            }
+        } 
+
+
         /// <summary>
         /// Boton que resuelve la operacion seleccionada
         /// </summary>
@@ -266,17 +286,21 @@ namespace Primer_tarea_programada
         /// <param name="e"></param>
         private void btnResolver_Click(object sender, EventArgs e)
         {
-            if (validarCampos(0) & validarCampos(1)) // si ambas funciones solo tienen numeros y no tiene espacios guarda datos
+            //if (validarCampos(0) & validarCampos(1)) // si ambas funciones solo tienen numeros y no tiene espacios guarda datos
+            //{
+            //    guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+            //    guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
+            //    sumar();
+            //}
+            //else
+            //{                
+            //    lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+            //    lbl1.Visible = true;
+            //}     
+            if (radioMulti.Enabled)
             {
-                guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
-                guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
-                sumar();
-            }
-            else
-            {                
-                lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
-                lbl1.Visible = true;
-            }           
+                multiplicacion();
+            }      
         }
 
         private void actVistaM(int matriz)
