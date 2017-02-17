@@ -19,3 +19,9 @@ C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\bin\Debug\Primer ta
 C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\bin\Debug\Primer tarea programada.exe.config
 C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.exe
 C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.pdb
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\bin\Debug\Primer tarea programada.exe
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\bin\Debug\Primer tarea programada.pdb
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.csprojResolveAssemblyReference.cache
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer_tarea_programada.Form1.resources
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer_tarea_programada.Properties.Resources.resources
+C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer tarea programada.csproj.GenerateResource.Cache
