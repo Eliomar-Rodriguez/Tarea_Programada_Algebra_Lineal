@@ -502,7 +502,13 @@ namespace Primer_tarea_programada
         {
 
         }
-
+        /// <summary>
+        /// Funcion para validar los datos ingresados en los campos de la matriz visual ya que solo pueden ser numeros enteros
+        /// </summary>
+        void validarEspacios()
+        {
+            
+        }
         private void textBox71_TextChanged(object sender, EventArgs e)
         {
 
@@ -519,6 +525,11 @@ namespace Primer_tarea_programada
 
         private void a13_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void radioSuma_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
