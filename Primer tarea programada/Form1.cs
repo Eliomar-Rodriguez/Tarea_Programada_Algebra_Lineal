@@ -274,18 +274,20 @@ namespace Primer_tarea_programada
         /// </summary>
         void multiplicacion()
         {
-            int fAux = 0;
-            for (int f = 0;f <= CmbFilas.SelectedIndex; f++)
+            for (int m = 0; m <= dimensiones[0][0]; m++)
             {
-                int result = 0;
-                for (int c = 0; c <= CmbColumn.SelectedIndex; c++)
+                for (int n = 0; n <= dimensiones[1][1]; n++)
                 {
-                    ListaMatrices[2][f][c].Text = Convert.ToString(int.Parse(ListaMatrices[0][f][c].Text) * int.Parse(ListaMatrices[1][f][c].Text)); 
+                    int resultado = 0;
+                    for (int k = 0; k <= dimensiones[0][1]; k++)
+                    {
+                        resultado = int.Parse(ListaMatrices[0][m][k].Text) * int.Parse(ListaMatrices[1][k][n].Text);
+                    }
+                    ListaMatrices[2][m][n].Visible = true;
+                    ListaMatrices[2][m][n].Text = Convert.ToString(resultado);
                 }
-                ListaMatrices[2][f][fAux].Text = Convert.ToString(result);
-                fAux++;
             }
-        } 
+        }
 
 
         /// <summary>
@@ -314,6 +316,17 @@ namespace Primer_tarea_programada
                 else if(radioResta.Checked)
                 {
                     adicion(-1);
+                }
+            }
+            else if (radioMulti.Checked & validarCampos(0) & validarCampos(2))
+            {
+                if (dimensiones[0][1] == dimensiones[1][0])
+                {
+                    multiplicacion();
+                }
+                else
+                {
+                    //Escribir un mensaje que la matrices no son compatibles
                 }
             }
             else
@@ -523,9 +536,9 @@ namespace Primer_tarea_programada
         bool validarCampos(int m)
         {
             int num = 0;
-            for (int f = 0; f <= CmbFilas.SelectedIndex; f++) // recorriendo filas
+            for (int f = 0; f <= dimensiones[m][0]; f++) // recorriendo filas
             {
-                for(int c = 0; c <= CmbColumn.SelectedIndex; c++) // recorriendo columnas
+                for(int c = 0; c <= dimensiones[m][1]; c++) // recorriendo columnas
                 {
                     if (ListaMatrices[m][f][c].Text.Length == 0 | int.TryParse(ListaMatrices[m][f][c].Text,out num) == false) // si esta caja de texto esta vacia alerta
                     {
@@ -705,6 +718,12 @@ namespace Primer_tarea_programada
             {
                 textOperador.Enabled = false;
             }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+            multiplicacion();
         }
     }
 }

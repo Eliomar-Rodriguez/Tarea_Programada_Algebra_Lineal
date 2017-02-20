@@ -116,6 +116,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textOperador = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioMulti = new System.Windows.Forms.RadioButton();
@@ -126,7 +127,7 @@
             this.CmbFilas = new System.Windows.Forms.ComboBox();
             this.CmbColumn = new System.Windows.Forms.ComboBox();
             this.btnneg = new System.Windows.Forms.Button();
-            this.textOperador = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -935,7 +936,7 @@
             // 
             this.btnT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnT.Location = new System.Drawing.Point(215, 79);
-            this.btnT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnT.Margin = new System.Windows.Forms.Padding(2);
             this.btnT.Name = "btnT";
             this.btnT.Size = new System.Drawing.Size(35, 22);
             this.btnT.TabIndex = 175;
@@ -983,6 +984,13 @@
             this.panel1.Size = new System.Drawing.Size(482, 54);
             this.panel1.TabIndex = 181;
             // 
+            // textOperador
+            // 
+            this.textOperador.Location = new System.Drawing.Point(401, 24);
+            this.textOperador.Name = "textOperador";
+            this.textOperador.Size = new System.Drawing.Size(78, 26);
+            this.textOperador.TabIndex = 5;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -999,7 +1007,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(211, 27);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(1);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(188, 20);
             this.radioButton1.TabIndex = 3;
@@ -1013,7 +1021,7 @@
             this.radioMulti.AutoSize = true;
             this.radioMulti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioMulti.Location = new System.Drawing.Point(126, 27);
-            this.radioMulti.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.radioMulti.Margin = new System.Windows.Forms.Padding(1);
             this.radioMulti.Name = "radioMulti";
             this.radioMulti.Size = new System.Drawing.Size(86, 20);
             this.radioMulti.TabIndex = 2;
@@ -1027,7 +1035,7 @@
             this.radioResta.AutoSize = true;
             this.radioResta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioResta.Location = new System.Drawing.Point(65, 27);
-            this.radioResta.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.radioResta.Margin = new System.Windows.Forms.Padding(1);
             this.radioResta.Name = "radioResta";
             this.radioResta.Size = new System.Drawing.Size(62, 20);
             this.radioResta.TabIndex = 1;
@@ -1041,7 +1049,7 @@
             this.radioSuma.AutoSize = true;
             this.radioSuma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioSuma.Location = new System.Drawing.Point(3, 27);
-            this.radioSuma.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.radioSuma.Margin = new System.Windows.Forms.Padding(1);
             this.radioSuma.Name = "radioSuma";
             this.radioSuma.Size = new System.Drawing.Size(61, 20);
             this.radioSuma.TabIndex = 0;
@@ -1072,7 +1080,7 @@
             "A",
             "B"});
             this.CmbMatriz.Location = new System.Drawing.Point(161, 42);
-            this.CmbMatriz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmbMatriz.Margin = new System.Windows.Forms.Padding(2);
             this.CmbMatriz.Name = "CmbMatriz";
             this.CmbMatriz.Size = new System.Drawing.Size(36, 26);
             this.CmbMatriz.TabIndex = 0;
@@ -1115,7 +1123,7 @@
             // 
             this.btnneg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnneg.Location = new System.Drawing.Point(161, 79);
-            this.btnneg.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnneg.Margin = new System.Windows.Forms.Padding(1);
             this.btnneg.Name = "btnneg";
             this.btnneg.Size = new System.Drawing.Size(35, 22);
             this.btnneg.TabIndex = 4;
@@ -1123,12 +1131,15 @@
             this.btnneg.UseVisualStyleBackColor = true;
             this.btnneg.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textOperador
+            // button1
             // 
-            this.textOperador.Location = new System.Drawing.Point(401, 24);
-            this.textOperador.Name = "textOperador";
-            this.textOperador.Size = new System.Drawing.Size(78, 26);
-            this.textOperador.TabIndex = 5;
+            this.button1.Location = new System.Drawing.Point(653, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 183;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Form1
             // 
@@ -1136,6 +1147,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1059, 428);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnneg);
             this.Controls.Add(this.CmbColumn);
             this.Controls.Add(this.CmbFilas);
@@ -1229,7 +1241,7 @@
             this.Controls.Add(this.a12);
             this.Controls.Add(this.a11);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Form1";
             this.Text = "Cálculo con Matrices";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1340,6 +1352,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox textOperador;
+        private System.Windows.Forms.Button button1;
     }
 }
 
