@@ -13,6 +13,10 @@ namespace Primer_tarea_programada
     public partial class Form1 : Form
     {
         /// <summary>
+        /// Variable que contiene el numero del paso (proceso) en el que se encuentra
+        /// </summary>
+        int numPaso = 0;
+        /// <summary>
         /// lista que contiene las 3 matrices (a, b, c)
         /// </summary>
         List<List<List<TextBox>>> ListaMatrices = new List<List<List<TextBox>>>();
@@ -244,7 +248,7 @@ namespace Primer_tarea_programada
             }
         }
         /// <summary>
-        /// Funcion que resuelve la operacion de sumar
+        /// Funcion que resuelve la operacion de suma entre matrices
         /// </summary>
         void adicion(int operador)
         {
@@ -722,8 +726,57 @@ namespace Primer_tarea_programada
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-
-            multiplicacion();
+            if (radioSuma.Checked)
+            {
+                if (numPaso == 0)
+                {
+                    if (!validarCampos(0) & !validarCampos(1)) // si esta vacia
+                    {
+                        lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+                        lbl1.Visible = true;
+                    }
+                    else
+                    {
+                        cambiodim(2, dimensiones[0][0], dimensiones[0][1]);
+                        for (int m = 0; m < 2; m++)
+                        {
+                            for (int f = 0; f <= CmbFilas.SelectedIndex; f++)
+                            {
+                                for (int c = 0; c <= CmbColumn.SelectedIndex; c++)
+                                {
+                                    ListaMatrices[2][f][c].Text = matrizLog[0][f][c].ToString() + " + " + matrizLog[1][f][c].ToString();
+                                }
+                            }
+                        }
+                        numPaso++;
+                        btnPasos.Text = "Atrás";
+                    }
+                }
+                else if (numPaso == 1)
+                {
+                    if (!validarCampos(0) & !validarCampos(1)) // si esta vacia
+                    {
+                        lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+                        lbl1.Visible = true;
+                    }
+                    else
+                    {
+                        cambiodim(2, dimensiones[0][0], dimensiones[0][1]);
+                        for (int m = 0; m < 2; m++)
+                        {
+                            for (int f = 0; f <= CmbFilas.SelectedIndex; f++)
+                            {
+                                for (int c = 0; c <= CmbColumn.SelectedIndex; c++)
+                                {
+                                    ListaMatrices[2][f][c].Text = (matrizLog[0][f][c] + matrizLog[1][f][c]).ToString();
+                                }
+                            }
+                        }
+                        btnPasos.Text = "Explicación";
+                        numPaso--;
+                    }
+                }
+            }
         }
     }
 }
