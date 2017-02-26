@@ -281,7 +281,7 @@ namespace Primer_tarea_programada
                     int resultado = 0;
                     for (int k = 0; k <= dimensiones[0][1]; k++)
                     {
-                        resultado = int.Parse(ListaMatrices[0][m][k].Text) * int.Parse(ListaMatrices[1][k][n].Text);
+                        resultado += int.Parse(ListaMatrices[0][m][k].Text) * int.Parse(ListaMatrices[1][k][n].Text);
                     }
                     ListaMatrices[2][m][n].Visible = true;
                     ListaMatrices[2][m][n].Text = Convert.ToString(resultado);
@@ -318,7 +318,7 @@ namespace Primer_tarea_programada
                     adicion(-1);
                 }
             }
-            else if (radioMulti.Checked & validarCampos(0) & validarCampos(2))
+            else if (radioMulti.Checked)
             {
                 if (dimensiones[0][1] == dimensiones[1][0])
                 {
@@ -326,7 +326,8 @@ namespace Primer_tarea_programada
                 }
                 else
                 {
-                    //Escribir un mensaje que la matrices no son compatibles
+                    lbl1.Text = "Las matrices no son compatibles";
+                    lbl1.Visible = true;
                 }
             }
             else
@@ -510,6 +511,12 @@ namespace Primer_tarea_programada
                 }
             }
         }
+        /// <summary>
+        /// Funcion que guarda los datos ingresados en la matriz visual y los almacena en la matriz logica
+        /// </summary>
+        /// <param name="m">Posicion de la matriz en la que se desea almacenar</param>
+        /// <param name="f">Cantidad de filas de las matrices actuales</param>
+        /// <param name="c">Cantidad de columnas de las matrices actuales</param>
         void guardarDatos(int m,int f, int c)
         {
             for(int x = 0; x <= f; x++)
@@ -723,6 +730,11 @@ namespace Primer_tarea_programada
         {
 
             multiplicacion();
+        }
+
+        private void btnInversa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

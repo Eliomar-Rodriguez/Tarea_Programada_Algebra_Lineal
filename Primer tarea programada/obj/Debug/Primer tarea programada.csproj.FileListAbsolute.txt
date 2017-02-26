@@ -28,3 +28,12 @@ C:\Users\Kezo\Desktop\progra albegra\Primer tarea programada\obj\Debug\Primer ta
 C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\obj\Debug\Primer tarea programada.exe
 C:\Users\alber\Desktop\Tarea algebra\Primer tarea programada\obj\Debug\Primer tarea programada.pdb
 >>>>>>> bea3353089302cea739ddd096c00d8cf056f6404
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\bin\Debug\Primer tarea programada.exe.config
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer tarea programada.exe
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer tarea programada.pdb
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\bin\Debug\Primer tarea programada.exe
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\bin\Debug\Primer tarea programada.pdb
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer tarea programada.csprojResolveAssemblyReference.cache
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer_tarea_programada.Form1.resources
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer_tarea_programada.Properties.Resources.resources
+C:\Users\kembl\Documents\Ingeniería en computación TEC\3 SEM\Algebra Lineal\1 tarea programada\Primer tarea programada\obj\Debug\Primer tarea programada.csproj.GenerateResource.Cache

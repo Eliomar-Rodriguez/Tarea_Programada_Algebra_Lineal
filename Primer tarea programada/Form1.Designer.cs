@@ -128,6 +128,9 @@
             this.CmbColumn = new System.Windows.Forms.ComboBox();
             this.btnneg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnInversa = new System.Windows.Forms.Button();
+            this.msjErrorInversa = new System.Windows.Forms.Label();
+            this.cmbInversa = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1116,7 +1119,7 @@
             "5"});
             this.CmbColumn.Location = new System.Drawing.Point(280, 42);
             this.CmbColumn.Name = "CmbColumn";
-            this.CmbColumn.Size = new System.Drawing.Size(36, 26);
+            this.CmbColumn.Size = new System.Drawing.Size(37, 26);
             this.CmbColumn.TabIndex = 2;
             // 
             // btnneg
@@ -1133,7 +1136,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(653, 276);
+            this.button1.Location = new System.Drawing.Point(636, 276);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 183;
@@ -1141,12 +1144,47 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // btnInversa
+            // 
+            this.btnInversa.Location = new System.Drawing.Point(35, 362);
+            this.btnInversa.Name = "btnInversa";
+            this.btnInversa.Size = new System.Drawing.Size(75, 23);
+            this.btnInversa.TabIndex = 184;
+            this.btnInversa.Text = "Inversa";
+            this.btnInversa.UseVisualStyleBackColor = true;
+            this.btnInversa.Click += new System.EventHandler(this.btnInversa_Click);
+            // 
+            // msjErrorInversa
+            // 
+            this.msjErrorInversa.AutoSize = true;
+            this.msjErrorInversa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msjErrorInversa.ForeColor = System.Drawing.Color.Red;
+            this.msjErrorInversa.Location = new System.Drawing.Point(524, 348);
+            this.msjErrorInversa.Name = "msjErrorInversa";
+            this.msjErrorInversa.Size = new System.Drawing.Size(357, 16);
+            this.msjErrorInversa.TabIndex = 185;
+            this.msjErrorInversa.Text = "La matriz no posee inversa ya que no es cuadrada";
+            // 
+            // cmbInversa
+            // 
+            this.cmbInversa.FormattingEnabled = true;
+            this.cmbInversa.Items.AddRange(new object[] {
+            "Gauss – Jordan",
+            "Matriz de cofactores"});
+            this.cmbInversa.Location = new System.Drawing.Point(16, 322);
+            this.cmbInversa.Name = "cmbInversa";
+            this.cmbInversa.Size = new System.Drawing.Size(121, 21);
+            this.cmbInversa.TabIndex = 186;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1059, 428);
+            this.Controls.Add(this.cmbInversa);
+            this.Controls.Add(this.msjErrorInversa);
+            this.Controls.Add(this.btnInversa);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnneg);
             this.Controls.Add(this.CmbColumn);
@@ -1353,6 +1391,9 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox textOperador;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInversa;
+        private System.Windows.Forms.Label msjErrorInversa;
+        private System.Windows.Forms.ComboBox cmbInversa;
     }
 }
 
