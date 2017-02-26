@@ -127,7 +127,6 @@
             this.CmbFilas = new System.Windows.Forms.ComboBox();
             this.CmbColumn = new System.Windows.Forms.ComboBox();
             this.btnneg = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnInversa = new System.Windows.Forms.Button();
             this.msjErrorInversa = new System.Windows.Forms.Label();
             this.cmbInversa = new System.Windows.Forms.ComboBox();
@@ -1014,7 +1013,6 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(188, 20);
             this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Multiplicar M por un numero";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
@@ -1028,7 +1026,6 @@
             this.radioMulti.Name = "radioMulti";
             this.radioMulti.Size = new System.Drawing.Size(86, 20);
             this.radioMulti.TabIndex = 2;
-            this.radioMulti.TabStop = true;
             this.radioMulti.Text = "Multiplicar";
             this.radioMulti.UseVisualStyleBackColor = true;
             this.radioMulti.CheckedChanged += new System.EventHandler(this.radioMulti_CheckedChanged);
@@ -1042,7 +1039,6 @@
             this.radioResta.Name = "radioResta";
             this.radioResta.Size = new System.Drawing.Size(62, 20);
             this.radioResta.TabIndex = 1;
-            this.radioResta.TabStop = true;
             this.radioResta.Text = "Resta";
             this.radioResta.UseVisualStyleBackColor = true;
             this.radioResta.CheckedChanged += new System.EventHandler(this.radioResta_CheckedChanged);
@@ -1056,7 +1052,6 @@
             this.radioSuma.Name = "radioSuma";
             this.radioSuma.Size = new System.Drawing.Size(61, 20);
             this.radioSuma.TabIndex = 0;
-            this.radioSuma.TabStop = true;
             this.radioSuma.Text = "Suma";
             this.radioSuma.UseVisualStyleBackColor = true;
             this.radioSuma.CheckedChanged += new System.EventHandler(this.radioSuma_CheckedChanged);
@@ -1134,16 +1129,6 @@
             this.btnneg.UseVisualStyleBackColor = true;
             this.btnneg.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(636, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 183;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
             // btnInversa
             // 
             this.btnInversa.Location = new System.Drawing.Point(35, 362);
@@ -1185,7 +1170,6 @@
             this.Controls.Add(this.cmbInversa);
             this.Controls.Add(this.msjErrorInversa);
             this.Controls.Add(this.btnInversa);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnneg);
             this.Controls.Add(this.CmbColumn);
             this.Controls.Add(this.CmbFilas);
@@ -1390,7 +1374,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox textOperador;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnInversa;
         private System.Windows.Forms.Label msjErrorInversa;
         private System.Windows.Forms.ComboBox cmbInversa;

@@ -313,13 +313,15 @@ namespace Primer_tarea_programada
                 {
                     adicion(1);
                 }
-                else if(radioResta.Checked)
+                else if (radioResta.Checked)
                 {
                     adicion(-1);
                 }
             }
-            else if (radioMulti.Checked)
+            if (radioMulti.Checked)
             {
+                guardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+                guardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
                 if (dimensiones[0][1] == dimensiones[1][0])
                 {
                     multiplicacion();
