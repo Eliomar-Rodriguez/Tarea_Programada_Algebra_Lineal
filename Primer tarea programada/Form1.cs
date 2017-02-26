@@ -401,7 +401,6 @@ namespace Primer_tarea_programada
             if (dimensiones[0][1] == dimensiones[1][0])
             {
                 radioMulti.Enabled = true;
-
             }
             else
             {
