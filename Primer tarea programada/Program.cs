@@ -7,6 +7,7 @@ namespace Primer_tarea_programada
 {
     static class Program
     {
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
