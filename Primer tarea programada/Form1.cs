@@ -36,6 +36,7 @@ namespace Primer_tarea_programada
             cmbMatriz.SelectedIndex = 0;
             cmbMatriz.Update();
             cmbFilas.SelectedIndex = 0;
+            cmbInversa.SelectedIndex = 0;
             cmbFilas.Update();
             cmbColumn.SelectedIndex = 0;
             cmbColumn.Update();
@@ -251,14 +252,13 @@ namespace Primer_tarea_programada
                     int resultado = 0;
                     for (int k = 0; k <= dimensiones[0][1]; k++)
                     {
-                        resultado = int.Parse(listaMatrices[0][m][k].Text) * int.Parse(listaMatrices[1][k][n].Text);
+                        resultado += int.Parse(listaMatrices[0][m][k].Text) * int.Parse(listaMatrices[1][k][n].Text);
                     }
                     listaMatrices[2][m][n].Visible = true;
                     listaMatrices[2][m][n].Text = Convert.ToString(resultado);
                 }
             }
         }
-
 
         /// <summary>
         /// Boton que resuelve la operacion seleccionada
@@ -280,6 +280,7 @@ namespace Primer_tarea_programada
                 GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
                 if (radioSuma.Checked)
                 {
+                    
                     Adicion(1);
                 }
                 else if (radioResta.Checked)
@@ -289,13 +290,16 @@ namespace Primer_tarea_programada
             }
             else if (radioMulti.Checked & ValidarCampos(0) & ValidarCampos(2))
             {
+                GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+                GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
                 if (dimensiones[0][1] == dimensiones[1][0])
                 {
                     Multiplicacion();
                 }
                 else
                 {
-                    //Escribir un mensaje que la matrices no son compatibles
+                    lbl1.Text = "Las matrices no son compatibles";
+                    lbl1.Visible = true;
                 }
             }
             else
@@ -382,7 +386,6 @@ namespace Primer_tarea_programada
             if (dimensiones[0][1] == dimensiones[1][0])
             {
                 radioMulti.Enabled = true;
-
             }
             else
             {
@@ -410,40 +413,6 @@ namespace Primer_tarea_programada
             ActMatVisual(matriz);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OcultarCajas(2);
-            BorrarInv(2);
-            if (ValidarCampos(cmbMatriz.SelectedIndex)) // si la funcion retorna true entonces solamente tiene numeros y no tiene espacios
-            {
-                GuardarDatos(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
-                Transpuesta(cmbMatriz.SelectedIndex);
-                BorrarInv(cmbMatriz.SelectedIndex);
-            }
-            else
-            {
-                if (cmbMatriz.SelectedIndex == 0)
-                {
-                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz A";
-                }
-                else
-                {
-                    lbl1.Visible = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Boton que genera (crea) la matriz
-        /// </summary>
-        /// 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            btnResolver.Visible = true;
-            btnPasos.Visible = true;
-            CambioDim(cmbMatriz.SelectedIndex, cmbFilas.SelectedIndex, cmbColumn.SelectedIndex);
-            BorrarInv(cmbMatriz.SelectedIndex);
-        }
         /// <summary>
         /// Funcion que multiplica una matriz por un numero real
         /// </summary>
@@ -466,7 +435,14 @@ namespace Primer_tarea_programada
                 }
             }
         }
-        void GuardarDatos(int m, int f, int c)
+
+        /// <summary>
+        /// Funcion que guarda los datos ingresados en la matriz visual y los almacena en la matriz logica
+        /// </summary>
+        /// <param name="m">Posicion de la matriz en la que se desea almacenar</param>
+        /// <param name="f">Cantidad de filas de las matrices actuales</param>
+        /// <param name="c">Cantidad de columnas de las matrices actuales</param>
+        void GuardarDatos(int m,int f, int c)
         {
             for (int x = 0; x <= f; x++)
             {
@@ -503,29 +479,7 @@ namespace Primer_tarea_programada
             }
             return true;
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OcultarCajas(2);
-            BorrarInv(2);
-            if (ValidarCampos(cmbMatriz.SelectedIndex)) // si la funcion retorna true entonces solamente tiene numeros y no tiene espacios
-            {
-                GuardarDatos(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
-                ActMatVisual(cmbMatriz.SelectedIndex);
-                MultiMatrizPorReal(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1], -1, cmbMatriz.SelectedIndex);
-            }
-            else
-            {
-                if (cmbMatriz.SelectedIndex == 0)
-                {
-                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz A";
-                }
-                else
-                {
-                    lbl1.Text = "No pueden haber espacios vacios ni letras en la matriz B";
-                }
-                lbl1.Visible = true;
-            }
-        }
+        
         /// <summary>
         /// Función que muestra la cantidad correcta de filas y columnas dependiendo de la operación seleccionada
         /// </summary>
@@ -593,7 +547,15 @@ namespace Primer_tarea_programada
             }
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            btnResolver.Visible = true;
+            btnPasos.Visible = true;
+            CambioDim(cmbMatriz.SelectedIndex, cmbFilas.SelectedIndex, cmbColumn.SelectedIndex);
+            BorrarInv(cmbMatriz.SelectedIndex);
+        }
+
+        private void btnPasos_Click(object sender, EventArgs e)
         {
             // variable utilizada para validar que las cajas de texto solo contengan numeros
             int num = 0;
@@ -749,9 +711,13 @@ namespace Primer_tarea_programada
                         btnPasos.Text = "Paso 1";
                         numPaso = 0;
                     }
-
                 }
             }
+        }
+
+        private void btnT_Click(object sender, EventArgs e)
+        {
+            Transpuesta(cmbMatriz.SelectedIndex);
         }
     }
 }
