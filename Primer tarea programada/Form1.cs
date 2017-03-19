@@ -23,7 +23,7 @@ namespace Primer_tarea_programada
         /// <summary>
         /// Matriz logica en donde se guardan los numeros que son ingresados a la matrz visual (cajas de texto)
         /// </summary>
-        List<List<List<int>>> matrizLog = new List<List<List<int>>>();
+        List<List<List<float>>> matrizLog = new List<List<List<float>>>();
         /// <summary>
         /// Contiene el tamaño actual de las matrices
         /// </summary>
@@ -44,6 +44,7 @@ namespace Primer_tarea_programada
             radioSuma.Enabled = false;
             radioMulti.Enabled = false;
             txtOperador.Enabled = false;
+            radioInversa.Enabled = false;
             label9.Visible = false;
             radioMultiPorNum.Enabled = false;
 
@@ -86,18 +87,19 @@ namespace Primer_tarea_programada
         {
             for (int x = 0; x < 3; x++)
             {
-                listaMatrices.Add(new List<List<System.Windows.Forms.TextBox>>());
+                listaMatrices.Add(new List<List<TextBox>>());
                 for (int y = 0; y < 5; y++)
                 {
-                    listaMatrices[x].Add(new List<System.Windows.Forms.TextBox>());
+                    listaMatrices[x].Add(new List<TextBox>());
                 }
             }
+            
             for (int x = 0; x < 3; x++)
             {
-                matrizLog.Add(new List<List<int>>());
+                matrizLog.Add(new List<List<float>>());
                 for (int y = 0; y < 5; y++)
                 {
-                    matrizLog[x].Add(new List<int>());
+                    matrizLog[x].Add(new List<float>());
                     for (int z = 0; z < 5; z++)
                     {
                         matrizLog[x][y].Add(0);
@@ -364,17 +366,32 @@ namespace Primer_tarea_programada
             }
             dimensiones[x][0] = y;
             dimensiones[x][1] = z;
-            if (dimensiones[0][0] == dimensiones[1][0] && dimensiones[0][1] == dimensiones[1][1])
+            // Inversa
+            if (dimensiones[cmbMatriz.SelectedIndex][0] <= 2 & dimensiones[cmbMatriz.SelectedIndex][1] <= 2 & dimensiones[cmbMatriz.SelectedIndex][0]== dimensiones[cmbMatriz.SelectedIndex][1]) // si la matriz seleccionada tiene f y c >= a 2 entonces puede operar con inversa
+            {
+                radioInversa.Enabled = true;
+                OcultarCajas(2);
+                MostrarMatrizFinal(dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
+            }
+            else
+            {
+                radioInversa.Enabled = false;
+                radioInversa.Checked = false;
+            }
+            // Suma y resta
+            if (dimensiones[0][0] == dimensiones[1][0] && dimensiones[0][1] == dimensiones[1][1]) // si las filas y columnas de la matriz A y B son iguales puede sumar y restar
             {
                 radioResta.Enabled = true;
                 radioSuma.Enabled = true;
-                for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
+                OcultarCajas(2);
+                MostrarMatrizFinal(dimensiones[0][0],dimensiones[0][1]);
+                /*for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
                 {
                     for (int c = 0; c < cmbColumn.SelectedIndex; c++)
                     {
                         listaMatrices[2][f][c].Visible = true;
                     }
-                }
+                }*/
             }
             else
             {
@@ -383,9 +400,12 @@ namespace Primer_tarea_programada
                 radioResta.Enabled = false;
                 radioSuma.Enabled = false;
             }
-            if (dimensiones[0][1] == dimensiones[1][0])
+            // multiplicacion entre matriz A y matriz B
+            if (dimensiones[0][1] == dimensiones[1][0]) // multiplicacion entre matrices, esto valida igualdad entre columnas de A con filas de B
             {
                 radioMulti.Enabled = true;
+                OcultarCajas(2);
+                MostrarMatrizFinal(dimensiones[0][0],dimensiones[1][1]);
             }
             else
             {
@@ -399,7 +419,7 @@ namespace Primer_tarea_programada
         /// <param name="matriz">Matriz a trasnponer</param>
         private void Transpuesta(int matriz)
         {
-            int aux = 0;
+            float aux = 0;
             for (int x = 0; x < 5; x++)
             {
                 for (int y = 0; y < x; y++)
@@ -471,7 +491,7 @@ namespace Primer_tarea_programada
             {
                 for (int c = 0; c <= dimensiones[m][1]; c++) // recorriendo columnas
                 {
-                    if (listaMatrices[m][f][c].Text.Length == 0 | int.TryParse(listaMatrices[m][f][c].Text, out num) == false) // si esta caja de texto esta vacia alerta
+                    if (listaMatrices[m][f][c].Visible == true & (listaMatrices[m][f][c].Text.Length == 0 | !int.TryParse(listaMatrices[m][f][c].Text, out num))) // si esta caja de texto esta vacia alerta
                     {
                         return false;
                     }
@@ -528,27 +548,9 @@ namespace Primer_tarea_programada
             MostrarMatrizFinal(dimensiones[0][0], dimensiones[1][1]);            
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            lblMsg.Visible = false;
-            numPaso = 0;
-            btnPasos.Text = "Paso 1";
-            btnResolver.Visible = true;
-            txtOperador.Text = "";
-            MostrarMatrizFinal(cmbFilas.SelectedIndex,cmbColumn.SelectedIndex);
-            if (radioMultiPorNum.Checked)
-            {
-                txtOperador.Enabled = true;
-                label9.Visible = true;
-            }
-            else
-            {
-                txtOperador.Enabled = false;
-            }
-        }
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            radioMultiPorNum.Enabled = true;
             btnResolver.Visible = true;
             btnPasos.Visible = true;
             CambioDim(cmbMatriz.SelectedIndex, cmbFilas.SelectedIndex, cmbColumn.SelectedIndex);
@@ -559,7 +561,7 @@ namespace Primer_tarea_programada
         {
             // variable utilizada para validar que las cajas de texto solo contengan numeros
             int num = 0;
-            if (!ValidarCampos(0) & !ValidarCampos(1))
+            if (ValidarCampos(0)==false & ValidarCampos(1)==false)
             {
                 lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
                 lbl1.Visible = true;
@@ -718,6 +720,174 @@ namespace Primer_tarea_programada
         private void btnT_Click(object sender, EventArgs e)
         {
             Transpuesta(cmbMatriz.SelectedIndex);
+        }
+        public List<List<float>> clonarM(List<List<float>> original)
+        {
+            List<List<float>> clon = new List<List<float>>();
+            for (int i = 0; i < original.Count; i++)
+            {
+                clon.Add(new List<float>());
+                for (int x = 0; x < original[i].Count; x++)
+                {
+                    clon[i].Add(original[i][x]);
+                }
+            }
+            return clon;
+        }
+        /// <summary>
+        /// Funcion encargada de llenar la matriz de cofactores a partir de la matriz enviada
+        /// </summary>
+        /// <param name="matriz">Matriz en la cual se va a trabajar para sacar los cofactores</param>
+        /// <returns>Retorna una matriz llena con los cofactores para proceder a multiplicarla por el determinante</returns>
+        public List<List<float>> matrizCofactores(List<List<float>> matriz)
+        {
+            List<List<float>> mCofactores = clonarM(matriz) ;
+
+            for (int x = 0; x < mCofactores.Count; x++)
+            {
+                for (int y = 0; y < mCofactores.Count; y++)
+                {
+                    mCofactores[x][y] = cofactor(x, y, clonarM(matriz));
+                }
+            }
+            return mCofactores;
+        }
+        /// <summary>
+        /// Funcion encargada de sacar el cofactor
+        /// </summary>
+        /// <param name="i">Fila seleccionada</param>
+        /// <param name="j">Columna seleccionada</param>
+        /// <param name="matriz">Matriz de la cual se va a sacar el cofactor</param>
+        /// <returns>Retorna el numero cofactor</returns>
+        public float cofactor(int i, int j, List<List<float>> matriz)
+        {
+            if ((i + j) % 2 == 0)
+                return Menor(i,j, clonarM(matriz));
+            else
+                return (-1) * Menor(i, j, clonarM(matriz));
+        }
+        /// <summary>
+        /// Saca el menor M en las posiciones ij
+        /// </summary>
+        /// <param name="i">Fila seleccionada</param>
+        /// <param name="j">Columna seleccionada</param>
+        /// <param name="matriz">Matriz en la cual va a buscar el menor</param>
+        /// <returns>Retorna el resultado del menor</returns>
+        public float Menor(int i,int j, List<List<float>> matriz)
+        {
+            matriz.RemoveAt(i);
+            for (int x = 0; x < matriz.Count; x++)
+            {
+                matriz[x].RemoveAt(j);
+            }
+            return Determinante(clonarM(matriz));
+        }
+        /// <summary>
+        /// Funcion encargada de sacar el determinante
+        /// </summary>
+        /// <param name="matriz">Matriz a la cual le va a sacar determinante</param>
+        /// <returns>Retorna el determinante de la matriz</returns>
+        public float Determinante(List<List<float>> matriz)
+        {
+            if (matriz.Count == 1)
+            {
+                return matriz[0][0];
+            }
+            else if (matriz.Count == 2)
+            {
+                return (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0]);
+            }
+            else
+            {
+                float dety=0;
+                for (int i = 0; i < matriz.Count; i++)
+                {
+                    dety+=matriz[1][i] * cofactor(1, i, clonarM(matriz));
+                }
+                return dety;
+            }
+        }
+        private void btnInversa_Click(object sender, EventArgs e)
+        {
+            if (cmbInversa.SelectedIndex == 1)
+            {
+                if (dimensiones[cmbMatriz.SelectedIndex][0]== dimensiones[cmbMatriz.SelectedIndex][1]) // si tiene la cantidad de filas igual a la cantidad de columnas quiere decir que es cuadrada xD
+                {
+                    SacarCofactor();
+                }
+            }
+        }
+
+        private void radioInversa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioInversa.Checked)
+            {
+                pnlInversa.Visible = true;
+            }
+            else
+            {
+                pnlInversa.Visible = false;
+            }
+        }
+
+        private void radioMultiPorNum_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMsg.Visible = false;
+            numPaso = 0;
+            btnPasos.Text = "Paso 1";
+            btnResolver.Visible = true;
+            txtOperador.Text = "";
+            MostrarMatrizFinal(cmbFilas.SelectedIndex, cmbColumn.SelectedIndex);
+            if (radioMultiPorNum.Checked)
+            {
+                txtOperador.Enabled = true;
+                label9.Visible = true;
+            }
+            else
+            {
+                txtOperador.Enabled = false;
+            }
+        }
+       /// <summary>
+       /// Funcion encargada de sacar la matriz inversa utilizando el metodo de cofactor
+       /// </summary>
+        public void SacarCofactor()
+        {
+            GuardarDatos(0, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
+            List<List<float>> muestra = new List<List<float>>();
+            for (int i = 0; i <= dimensiones[cmbMatriz.SelectedIndex][0]; i++)
+            {
+                muestra.Add(new List<float>());
+                for (int j = 0; j <= dimensiones[cmbMatriz.SelectedIndex][1]; j++)
+                {
+                    muestra[i].Add(matrizLog[0][i][j]);
+                }
+            }
+            
+            List<List<float>> print = matrizCofactores(muestra.ToList());
+            for (int x = 0; x <= dimensiones[0][0]; x++)
+            {
+                for (int y = 0; y <= dimensiones[0][1]; y++)
+                {
+                    Console.Write(print[x][y] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            float det = cofactor(0, 0, print.ToList()); // determinante
+            MostrarMatrizFinal(dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
+            for (int f = 0; f < print.Count; f++)
+            {
+                for (int c = 0; c < print.Count; c++)
+                {
+                    //Console.WriteLine(dimensiones[2][1]);
+                    matrizLog[2][f][c] = (1/det) * print[c][f];
+                    Console.Write(matrizLog[2][f][c] + " ");
+                    listaMatrices[2][f][c].Text = matrizLog[2][f][c].ToString();
+                }
+                Console.WriteLine();
+            }
+            
         }
     }
 }

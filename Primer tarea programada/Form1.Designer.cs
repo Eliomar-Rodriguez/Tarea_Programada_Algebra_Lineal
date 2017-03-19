@@ -119,6 +119,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioInversa = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.txtOperador = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -131,7 +132,9 @@
             this.msjErrorInversa = new System.Windows.Forms.Label();
             this.cmbInversa = new System.Windows.Forms.ComboBox();
             this.cmbColumn = new System.Windows.Forms.ComboBox();
+            this.pnlInversa = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.pnlInversa.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbMatriz
@@ -484,7 +487,7 @@
             // b51
             // 
             this.b51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b51.Location = new System.Drawing.Point(509, 488);
+            this.b51.Location = new System.Drawing.Point(510, 488);
             this.b51.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b51.Name = "b51";
             this.b51.Size = new System.Drawing.Size(85, 35);
@@ -524,7 +527,7 @@
             // b41
             // 
             this.b41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b41.Location = new System.Drawing.Point(509, 445);
+            this.b41.Location = new System.Drawing.Point(510, 445);
             this.b41.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b41.Name = "b41";
             this.b41.Size = new System.Drawing.Size(85, 35);
@@ -584,7 +587,7 @@
             // b31
             // 
             this.b31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b31.Location = new System.Drawing.Point(509, 402);
+            this.b31.Location = new System.Drawing.Point(510, 402);
             this.b31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b31.Name = "b31";
             this.b31.Size = new System.Drawing.Size(85, 35);
@@ -624,7 +627,7 @@
             // b21
             // 
             this.b21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b21.Location = new System.Drawing.Point(509, 359);
+            this.b21.Location = new System.Drawing.Point(510, 359);
             this.b21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b21.Name = "b21";
             this.b21.Size = new System.Drawing.Size(85, 35);
@@ -684,7 +687,7 @@
             // b11
             // 
             this.b11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b11.Location = new System.Drawing.Point(509, 316);
+            this.b11.Location = new System.Drawing.Point(510, 316);
             this.b11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b11.Name = "b11";
             this.b11.Size = new System.Drawing.Size(85, 35);
@@ -694,7 +697,7 @@
             // c55
             // 
             this.c55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c55.Location = new System.Drawing.Point(1451, 488);
+            this.c55.Location = new System.Drawing.Point(1452, 488);
             this.c55.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c55.Name = "c55";
             this.c55.Size = new System.Drawing.Size(82, 35);
@@ -704,7 +707,7 @@
             // c54
             // 
             this.c54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c54.Location = new System.Drawing.Point(1366, 488);
+            this.c54.Location = new System.Drawing.Point(1367, 488);
             this.c54.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c54.Name = "c54";
             this.c54.Size = new System.Drawing.Size(82, 35);
@@ -714,7 +717,7 @@
             // c53
             // 
             this.c53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c53.Location = new System.Drawing.Point(1280, 488);
+            this.c53.Location = new System.Drawing.Point(1281, 488);
             this.c53.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c53.Name = "c53";
             this.c53.Size = new System.Drawing.Size(82, 35);
@@ -734,7 +737,7 @@
             // c51
             // 
             this.c51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c51.Location = new System.Drawing.Point(1109, 488);
+            this.c51.Location = new System.Drawing.Point(1110, 488);
             this.c51.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c51.Name = "c51";
             this.c51.Size = new System.Drawing.Size(82, 35);
@@ -744,7 +747,7 @@
             // c44
             // 
             this.c44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c44.Location = new System.Drawing.Point(1366, 445);
+            this.c44.Location = new System.Drawing.Point(1367, 445);
             this.c44.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c44.Name = "c44";
             this.c44.Size = new System.Drawing.Size(82, 35);
@@ -754,7 +757,7 @@
             // c43
             // 
             this.c43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c43.Location = new System.Drawing.Point(1280, 445);
+            this.c43.Location = new System.Drawing.Point(1281, 445);
             this.c43.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c43.Name = "c43";
             this.c43.Size = new System.Drawing.Size(82, 35);
@@ -774,7 +777,7 @@
             // c41
             // 
             this.c41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c41.Location = new System.Drawing.Point(1109, 445);
+            this.c41.Location = new System.Drawing.Point(1110, 445);
             this.c41.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c41.Name = "c41";
             this.c41.Size = new System.Drawing.Size(82, 35);
@@ -784,7 +787,7 @@
             // c35
             // 
             this.c35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c35.Location = new System.Drawing.Point(1451, 402);
+            this.c35.Location = new System.Drawing.Point(1452, 402);
             this.c35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c35.Name = "c35";
             this.c35.Size = new System.Drawing.Size(82, 35);
@@ -794,7 +797,7 @@
             // c45
             // 
             this.c45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c45.Location = new System.Drawing.Point(1451, 445);
+            this.c45.Location = new System.Drawing.Point(1452, 445);
             this.c45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c45.Name = "c45";
             this.c45.Size = new System.Drawing.Size(82, 35);
@@ -804,7 +807,7 @@
             // c34
             // 
             this.c34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c34.Location = new System.Drawing.Point(1366, 402);
+            this.c34.Location = new System.Drawing.Point(1367, 402);
             this.c34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c34.Name = "c34";
             this.c34.Size = new System.Drawing.Size(82, 35);
@@ -814,7 +817,7 @@
             // c33
             // 
             this.c33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c33.Location = new System.Drawing.Point(1280, 402);
+            this.c33.Location = new System.Drawing.Point(1281, 402);
             this.c33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c33.Name = "c33";
             this.c33.Size = new System.Drawing.Size(82, 35);
@@ -834,7 +837,7 @@
             // c31
             // 
             this.c31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c31.Location = new System.Drawing.Point(1109, 402);
+            this.c31.Location = new System.Drawing.Point(1110, 402);
             this.c31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c31.Name = "c31";
             this.c31.Size = new System.Drawing.Size(82, 35);
@@ -844,7 +847,7 @@
             // c24
             // 
             this.c24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c24.Location = new System.Drawing.Point(1366, 359);
+            this.c24.Location = new System.Drawing.Point(1367, 359);
             this.c24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c24.Name = "c24";
             this.c24.Size = new System.Drawing.Size(82, 35);
@@ -854,7 +857,7 @@
             // c23
             // 
             this.c23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c23.Location = new System.Drawing.Point(1280, 359);
+            this.c23.Location = new System.Drawing.Point(1281, 359);
             this.c23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c23.Name = "c23";
             this.c23.Size = new System.Drawing.Size(82, 35);
@@ -874,7 +877,7 @@
             // c21
             // 
             this.c21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c21.Location = new System.Drawing.Point(1109, 359);
+            this.c21.Location = new System.Drawing.Point(1110, 359);
             this.c21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c21.Name = "c21";
             this.c21.Size = new System.Drawing.Size(82, 35);
@@ -884,7 +887,7 @@
             // c15
             // 
             this.c15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c15.Location = new System.Drawing.Point(1451, 316);
+            this.c15.Location = new System.Drawing.Point(1452, 316);
             this.c15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c15.Name = "c15";
             this.c15.Size = new System.Drawing.Size(82, 35);
@@ -894,7 +897,7 @@
             // c25
             // 
             this.c25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c25.Location = new System.Drawing.Point(1451, 359);
+            this.c25.Location = new System.Drawing.Point(1452, 359);
             this.c25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c25.Name = "c25";
             this.c25.Size = new System.Drawing.Size(82, 35);
@@ -904,7 +907,7 @@
             // c14
             // 
             this.c14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c14.Location = new System.Drawing.Point(1366, 316);
+            this.c14.Location = new System.Drawing.Point(1367, 316);
             this.c14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c14.Name = "c14";
             this.c14.Size = new System.Drawing.Size(82, 35);
@@ -914,7 +917,7 @@
             // c13
             // 
             this.c13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c13.Location = new System.Drawing.Point(1280, 316);
+            this.c13.Location = new System.Drawing.Point(1281, 316);
             this.c13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c13.Name = "c13";
             this.c13.Size = new System.Drawing.Size(82, 35);
@@ -934,7 +937,7 @@
             // c11
             // 
             this.c11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c11.Location = new System.Drawing.Point(1109, 316);
+            this.c11.Location = new System.Drawing.Point(1110, 316);
             this.c11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c11.Name = "c11";
             this.c11.Size = new System.Drawing.Size(82, 35);
@@ -1040,7 +1043,7 @@
             // btnT
             // 
             this.btnT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnT.Location = new System.Drawing.Point(634, 155);
+            this.btnT.Location = new System.Drawing.Point(637, 146);
             this.btnT.Name = "btnT";
             this.btnT.Size = new System.Drawing.Size(52, 42);
             this.btnT.TabIndex = 175;
@@ -1078,6 +1081,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radioInversa);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtOperador);
             this.panel1.Controls.Add(this.label8);
@@ -1089,8 +1093,21 @@
             this.panel1.Location = new System.Drawing.Point(713, 35);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(863, 127);
+            this.panel1.Size = new System.Drawing.Size(931, 127);
             this.panel1.TabIndex = 181;
+            // 
+            // radioInversa
+            // 
+            this.radioInversa.AutoSize = true;
+            this.radioInversa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioInversa.Location = new System.Drawing.Point(395, 48);
+            this.radioInversa.Margin = new System.Windows.Forms.Padding(2);
+            this.radioInversa.Name = "radioInversa";
+            this.radioInversa.Size = new System.Drawing.Size(101, 29);
+            this.radioInversa.TabIndex = 185;
+            this.radioInversa.Text = "Inversa";
+            this.radioInversa.UseVisualStyleBackColor = true;
+            this.radioInversa.CheckedChanged += new System.EventHandler(this.radioInversa_CheckedChanged);
             // 
             // label9
             // 
@@ -1108,7 +1125,7 @@
             // 
             // txtOperador
             // 
-            this.txtOperador.Location = new System.Drawing.Point(688, 45);
+            this.txtOperador.Location = new System.Drawing.Point(781, 46);
             this.txtOperador.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOperador.Name = "txtOperador";
             this.txtOperador.Size = new System.Drawing.Size(115, 35);
@@ -1128,7 +1145,7 @@
             // 
             this.radioMultiPorNum.AutoSize = true;
             this.radioMultiPorNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMultiPorNum.Location = new System.Drawing.Point(396, 50);
+            this.radioMultiPorNum.Location = new System.Drawing.Point(498, 48);
             this.radioMultiPorNum.Margin = new System.Windows.Forms.Padding(2);
             this.radioMultiPorNum.Name = "radioMultiPorNum";
             this.radioMultiPorNum.Size = new System.Drawing.Size(277, 29);
@@ -1136,7 +1153,7 @@
             this.radioMultiPorNum.TabStop = true;
             this.radioMultiPorNum.Text = "Multiplicar M por un numero";
             this.radioMultiPorNum.UseVisualStyleBackColor = true;
-            this.radioMultiPorNum.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioMultiPorNum.CheckedChanged += new System.EventHandler(this.radioMultiPorNum_CheckedChanged);
             // 
             // radioMulti
             // 
@@ -1191,12 +1208,13 @@
             // btnInversa
             // 
             this.btnInversa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInversa.Location = new System.Drawing.Point(511, 155);
+            this.btnInversa.Location = new System.Drawing.Point(247, 3);
             this.btnInversa.Name = "btnInversa";
             this.btnInversa.Size = new System.Drawing.Size(117, 42);
             this.btnInversa.TabIndex = 184;
             this.btnInversa.Text = "Inversa";
             this.btnInversa.UseVisualStyleBackColor = true;
+            this.btnInversa.Click += new System.EventHandler(this.btnInversa_Click);
             // 
             // msjErrorInversa
             // 
@@ -1218,7 +1236,7 @@
             this.cmbInversa.Items.AddRange(new object[] {
             "Gauss – Jordan",
             "Matriz de cofactores"});
-            this.cmbInversa.Location = new System.Drawing.Point(270, 156);
+            this.cmbInversa.Location = new System.Drawing.Point(3, 5);
             this.cmbInversa.Name = "cmbInversa";
             this.cmbInversa.Size = new System.Drawing.Size(237, 34);
             this.cmbInversa.TabIndex = 188;
@@ -1240,6 +1258,16 @@
             this.cmbColumn.Size = new System.Drawing.Size(60, 34);
             this.cmbColumn.TabIndex = 2;
             // 
+            // pnlInversa
+            // 
+            this.pnlInversa.Controls.Add(this.cmbInversa);
+            this.pnlInversa.Controls.Add(this.btnInversa);
+            this.pnlInversa.Location = new System.Drawing.Point(258, 146);
+            this.pnlInversa.Name = "pnlInversa";
+            this.pnlInversa.Size = new System.Drawing.Size(373, 51);
+            this.pnlInversa.TabIndex = 189;
+            this.pnlInversa.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1247,13 +1275,12 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1657, 679);
-            this.Controls.Add(this.cmbInversa);
+            this.Controls.Add(this.pnlInversa);
             this.Controls.Add(this.btnPasos);
             this.Controls.Add(this.cmbColumn);
             this.Controls.Add(this.cmbFilas);
             this.Controls.Add(this.cmbMatriz);
             this.Controls.Add(this.msjErrorInversa);
-            this.Controls.Add(this.btnInversa);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl1);
@@ -1349,6 +1376,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlInversa.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1458,6 +1486,8 @@
         private System.Windows.Forms.Label msjErrorInversa;
         private System.Windows.Forms.ComboBox cmbInversa;
         private System.Windows.Forms.ComboBox cmbColumn;
+        private System.Windows.Forms.RadioButton radioInversa;
+        private System.Windows.Forms.Panel pnlInversa;
     }
 }
 
