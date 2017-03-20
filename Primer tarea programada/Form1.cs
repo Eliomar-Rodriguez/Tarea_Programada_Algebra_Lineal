@@ -25,7 +25,7 @@ namespace Primer_tarea_programada
         /// </summary>
         List<List<List<float>>> matrizLog = new List<List<List<float>>>();
         /// <summary>
-        /// Contiene el tamaño actual de las matrices
+        /// Contiene el tamaño de la matriz para usarla en ciclos porque comienza en 0
         /// </summary>
         List<List<int>> dimensiones = new List<List<int>>();
 
@@ -217,8 +217,9 @@ namespace Primer_tarea_programada
             }
         }
         /// <summary>
-        /// Funcion que resuelve la operacion de suma entre matrices
+        /// Funcion que resuelve la operacion de suma o resta entre matrices dependiendo del numero que recibe
         /// </summary>
+        /// <param name="operador">Si es 1 suma, si es -1 resta</param>
         void Adicion(int operador)
         {
             if (!ValidarCampos(0) & !ValidarCampos(1)) // si esta vacia
@@ -231,9 +232,9 @@ namespace Primer_tarea_programada
                 CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
                 for (int m = 0; m < 2; m++)
                 {
-                    for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
+                    for (int f = 0; f <= dimensiones[0][0]; f++)
                     {
-                        for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
+                        for (int c = 0; c <= dimensiones[0][1]; c++)
                         {
                             listaMatrices[2][f][c].Text = (matrizLog[0][f][c] + operador * matrizLog[1][f][c]).ToString();
                         }
@@ -276,7 +277,7 @@ namespace Primer_tarea_programada
                 if (int.TryParse(txtOperador.Text, out z))
                     MultiMatrizPorReal(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1], z, 2);
             }
-            else if (ValidarCampos(0) & ValidarCampos(1)) // si ambas funciones solo tienen numeros y no tiene espacios guarda datos
+            else if ((radioSuma.Checked | radioResta.Checked) & ValidarCampos(0) & ValidarCampos(1)) // si ambas matrices solo tienen numeros y no tiene espacios guarda datos
             {
                 GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
                 GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
@@ -290,7 +291,7 @@ namespace Primer_tarea_programada
                     Adicion(-1);
                 }
             }
-            else if (radioMulti.Checked & ValidarCampos(0) & ValidarCampos(2))
+            else if (radioMulti.Checked & ValidarCampos(0) & ValidarCampos(1)) // multiplicacion entre matrices
             {
                 GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
                 GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
@@ -302,6 +303,17 @@ namespace Primer_tarea_programada
                 {
                     lbl1.Text = "Las matrices no son compatibles";
                     lbl1.Visible = true;
+                }
+            }
+            else if (radioInversa.Checked & ValidarCampos(cmbMatriz.SelectedIndex))
+            {
+                lbl1.Visible = false;
+                if (cmbInversa.SelectedIndex == 1)
+                {
+                    if (dimensiones[cmbMatriz.SelectedIndex][0] == dimensiones[cmbMatriz.SelectedIndex][1]) // si tiene la cantidad de filas igual a la cantidad de columnas quiere decir que es cuadrada xD
+                    {
+                        SacarCofactor();
+                    }
                 }
             }
             else
@@ -342,14 +354,14 @@ namespace Primer_tarea_programada
             }
         }
         /// <summary>
-        /// Modifica el tamaño de la matriz lógica indicada
+        /// Modifica el tamaño de la matriz visual indicada
         /// </summary>
         /// <param name="x">Matriz a redimencionar</param>
         /// <param name="y">Cantidad de filas que tiene que tener luego del cambio</param>
         /// <param name="z">Cantidad de columnas que tiene que tener luego del cambio</param>
         private void CambioDim(int x, int y, int z)
         {
-            
+
             for (int a = 0; a < 5; a++)
             {
                 for (int b = 0; b < 5; b++)
@@ -367,7 +379,7 @@ namespace Primer_tarea_programada
             dimensiones[x][0] = y;
             dimensiones[x][1] = z;
             // Inversa
-            if (dimensiones[cmbMatriz.SelectedIndex][0] <= 2 & dimensiones[cmbMatriz.SelectedIndex][1] <= 2 & dimensiones[cmbMatriz.SelectedIndex][0]== dimensiones[cmbMatriz.SelectedIndex][1]) // si la matriz seleccionada tiene f y c >= a 2 entonces puede operar con inversa
+            if (dimensiones[cmbMatriz.SelectedIndex][0] >= 1 & dimensiones[cmbMatriz.SelectedIndex][1] >= 1 & dimensiones[cmbMatriz.SelectedIndex][0]== dimensiones[cmbMatriz.SelectedIndex][1]) // si la matriz seleccionada tiene f y c >= a 2 entonces puede operar con inversa
             {
                 radioInversa.Enabled = true;
                 OcultarCajas(2);
@@ -419,6 +431,7 @@ namespace Primer_tarea_programada
         /// <param name="matriz">Matriz a trasnponer</param>
         private void Transpuesta(int matriz)
         {
+            GuardarDatos(matriz,dimensiones[cmbMatriz.SelectedIndex][0],dimensiones[cmbMatriz.SelectedIndex][1]);
             float aux = 0;
             for (int x = 0; x < 5; x++)
             {
@@ -449,7 +462,7 @@ namespace Primer_tarea_programada
             {
                 for (int z = 0; z <= c; z++)
                 {
-                    Console.WriteLine(matrizLog[MatOrigen][y][z]);
+                    //Console.WriteLine(matrizLog[MatOrigen][y][z]);
                     matrizLog[matDestino][y][z] = matrizLog[MatOrigen][y][z] * operador;
                     listaMatrices[matDestino][y][z].Text = matrizLog[matDestino][y][z].ToString();
                 }
@@ -464,17 +477,20 @@ namespace Primer_tarea_programada
         /// <param name="c">Cantidad de columnas de las matrices actuales</param>
         void GuardarDatos(int m,int f, int c)
         {
-            for (int x = 0; x <= f; x++)
+            if (ValidarCampos(m))
             {
-                for (int y = 0; y <= c; y++)
+                for (int x = 0; x <= f; x++)
                 {
-                    if (listaMatrices[m][x][y].Text.Length == 0)
+                    for (int y = 0; y <= c; y++)
                     {
-                        lbl1.Visible = true;
-                    }
-                    else
-                    {
-                        matrizLog[m][x][y] = int.Parse(listaMatrices[m][x][y].Text);
+                        if (listaMatrices[m][x][y].Text.Length == 0)
+                        {
+                            lbl1.Visible = true;
+                        }
+                        else
+                        {
+                            matrizLog[m][x][y] = float.Parse(listaMatrices[m][x][y].Text);
+                        }
                     }
                 }
             }
@@ -561,165 +577,143 @@ namespace Primer_tarea_programada
         {
             // variable utilizada para validar que las cajas de texto solo contengan numeros
             int num = 0;
-            if (ValidarCampos(0)==false & ValidarCampos(1)==false)
+
+            // SUMAR
+            if (radioSuma.Checked & ValidarCampos(0) & ValidarCampos(1)) // en caso que desee sumar y tenga el radiobutton de sumar seleccionado
             {
-                lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
-                lbl1.Visible = true;
+                GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+                GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
+                if (numPaso == 0)
+                {
+                    CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
+                    for (int m = 0; m < 2; m++)
+                    {
+                        for (int f = 0; f <= dimensiones[0][0]; f++)
+                        {
+                            for (int c = 0; c <= dimensiones[0][1]; c++)
+                            {
+                                listaMatrices[2][f][c].Text = matrizLog[0][f][c].ToString() + "+" + matrizLog[1][f][c].ToString();
+                            }
+                        }
+                    }
+                    numPaso++;
+                    btnPasos.Text = "Paso 2";
+                }
+                else if (numPaso == 1)
+                {
+                    Adicion(1);
+                    btnPasos.Text = "Paso 1";
+                    numPaso = 0;
+                }
             }
-            else
+            // RESTAR
+            else if (radioResta.Checked & ValidarCampos(0) & ValidarCampos(1)) // en caso que desee restar y tenga el radiobutton de sumar seleccionado
             {
-                // ingreso de numeros desde matriz de cajas de texto a matriz logica
+                GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
+                GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
+                if (numPaso == 0)
+                {
+                    CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
+                    for (int m = 0; m < 2; m++)
+                    {
+                        for (int f = 0; f <= dimensiones[0][0]; f++)
+                        {
+                            for (int c = 0; c <= dimensiones[0][1]; c++)
+                            {
+                                listaMatrices[2][f][c].Text = matrizLog[0][f][c].ToString() + "-" + matrizLog[1][f][c].ToString();
+                            }
+                        }
+                    }
+                    numPaso++;
+                    btnPasos.Text = "Paso 2";
+                }
+                else if (numPaso == 1)
+                {
+                    Adicion(-1);
+                    btnPasos.Text = "Paso 1";
+                    numPaso = 0;
+                }
+            }
+            // MULTIPLICACION DE NUMERO REAL POR MATRIZ
+            else if (radioMultiPorNum.Checked & ValidarCampos(cmbMatriz.SelectedIndex)) // en caso que desee multiplicar por un numero y tenga el radiobutton de sumar seleccionado
+            {
+                GuardarDatos(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
+                if (!int.TryParse(txtOperador.Text, out num)) //si tiene letras
+                {
+                    label9.Text = "Multiplica por la matriz seleccionada por donde dice tamaño";
+                    label9.Visible = true;
+                }
+                else
+                {
+                    if (numPaso == 0)
+                    {
+                        CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
+                        for (int f = 0; f <= dimensiones[cmbMatriz.SelectedIndex][0]; f++)
+                        {
+                            for (int c = 0; c <= dimensiones[cmbMatriz.SelectedIndex][1]; c++)
+                            {
+                                listaMatrices[2][f][c].Text = txtOperador.Text + "*" + matrizLog[cmbMatriz.SelectedIndex][f][c].ToString();
+                            }
+                        }
+                        numPaso++;
+                        btnPasos.Text = "Paso 2";
+                    }
+                    else if (numPaso == 1)
+                    {
+                        MultiMatrizPorReal(cmbMatriz.SelectedIndex, dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1], int.Parse(txtOperador.Text), 2);
+                        numPaso = 0;
+                        btnPasos.Text = "Paso 1";
+                    }
+                }
+            }
+            // MULTIPLICACION ENTRE MATRICES
+            else if (radioMulti.Checked & ValidarCampos(0) & ValidarCampos(1))
+            {
                 GuardarDatos(0, dimensiones[0][0], dimensiones[0][1]);
                 GuardarDatos(1, dimensiones[1][0], dimensiones[1][1]);
 
-                if (radioSuma.Checked) // en caso que desee sumar y tenga el radiobutton de sumar seleccionado
+                if (numPaso == 0)
                 {
-                    if (numPaso == 0)
+                    for (int m = 0; m <= dimensiones[0][0]; m++)
                     {
-                        CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
+                        for (int n = 0; n <= dimensiones[1][1]; n++)
                         {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
+                            int resultado = 0;
+                            string op = "";
+                            for (int k = 0; k <= dimensiones[0][1]; k++)
                             {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = matrizLog[0][f][c].ToString() + " + " + matrizLog[1][f][c].ToString();
-                                }
+                                op += listaMatrices[0][m][k].Text +"*"+ listaMatrices[1][k][n].Text+"+";
+                                //resultado += int.Parse(listaMatrices[0][m][k].Text) * int.Parse(listaMatrices[1][k][n].Text);
                             }
+                            op = op.Remove(op.Length - 1, 1);
+                            listaMatrices[2][m][n].Visible = true;
+                            listaMatrices[2][m][n].Text = op;
+                            //listaMatrices[2][m][n].Text = Convert.ToString(resultado);
                         }
-                        numPaso++;
-                        btnPasos.Text = "Paso 2";
                     }
-                    else if (numPaso == 1)
-                    {
-                        CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
-                        {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = (matrizLog[0][f][c] + matrizLog[1][f][c]).ToString();
-                                }
-                            }
-                        }
-                        btnPasos.Text = "Paso 1";
-                        numPaso = 0;
-                    }
+                    numPaso = 1;
+                    btnPasos.Text = "Paso 1";
                 }
-                else if (radioResta.Checked) // en caso que desee restar y tenga el radiobutton de sumar seleccionado
+                else if (numPaso == 1)
                 {
-                    if (numPaso == 0)
-                    {
-                        CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
-                        {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = matrizLog[0][f][c].ToString() + " - " + matrizLog[1][f][c].ToString();
-                                }
-                            }
-                        }
-                        numPaso++;
-                        btnPasos.Text = "Paso 2";
-                    }
-                    else if (numPaso == 1)
-                    {
-                        CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
-                        {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = (matrizLog[0][f][c] - matrizLog[1][f][c]).ToString();
-                                }
-                            }
-                        }
-                        btnPasos.Text = "Paso 1";
-                        numPaso = 0;
-                    }
+                    Multiplicacion();
+                    numPaso = 0;
+                    btnPasos.Text = "Paso 1";
                 }
-                else if (radioMultiPorNum.Checked) // en caso que desee multiplicar por un numero y tenga el radiobutton de sumar seleccionado
-                {
-                    if (!int.TryParse(txtOperador.Text, out num)) //si tiene letras
-                    {
-                        label9.Text = "Multiplica por la matriz seleccionada por donde dice tamaño";
-                        label9.Visible = true;
-                    }
-                    else
-                    {
-                        if (numPaso == 0)
-                        {
-                            CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = txtOperador.Text + " * " + matrizLog[cmbMatriz.SelectedIndex][f][c].ToString();
-                                }
-                            }
-                            numPaso++;
-                            btnPasos.Text = "Paso 2";
-                        }
-                        else if (numPaso == 1)
-                        {
-                            CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = (int.Parse(txtOperador.Text) * matrizLog[cmbMatriz.SelectedIndex][f][c]).ToString();
-                                }
-                            }
-                            numPaso = 0;
-                            btnPasos.Text = "Paso 1";
-                        }
-                    }
-                }
-                else if (radioMultiPorNum.Checked)
-                {
-                    if (numPaso == 0)
-                    {
-                        //CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
-                        {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = (txtOperador.Text + " * " + matrizLog[cmbMatriz.SelectedIndex][f][c]).ToString();
-                                }
-                            }
-                        }
-                        numPaso++;
-                        btnPasos.Text = "Paso 2";
-                    }
-                    else if (numPaso == 1)
-                    {
-                        //CambioDim(2, dimensiones[0][0], dimensiones[0][1]);
-                        for (int m = 0; m < 2; m++)
-                        {
-                            for (int f = 0; f <= cmbFilas.SelectedIndex; f++)
-                            {
-                                for (int c = 0; c <= cmbColumn.SelectedIndex; c++)
-                                {
-                                    listaMatrices[2][f][c].Text = (matrizLog[0][f][c] - matrizLog[1][f][c]).ToString();
-                                }
-                            }
-                        }
-                        btnPasos.Text = "Paso 1";
-                        numPaso = 0;
-                    }
-                }
+            }
+            else
+            {
+                lbl1.Text = "No pueden haber espacios vacios ni letras en ninguna de las dos matrices.";
+                lbl1.Visible = true;
             }
         }
 
         private void btnT_Click(object sender, EventArgs e)
         {
-            Transpuesta(cmbMatriz.SelectedIndex);
+            if (ValidarCampos(cmbMatriz.SelectedIndex) & (dimensiones[cmbMatriz.SelectedIndex][0]>=1 | dimensiones[cmbMatriz.SelectedIndex][1]>=1))
+            {
+                Transpuesta(cmbMatriz.SelectedIndex);
+            }
         }
         public List<List<float>> clonarM(List<List<float>> original)
         {
@@ -799,23 +793,17 @@ namespace Primer_tarea_programada
             }
             else
             {
-                float dety=0;
+                float det=0;
                 for (int i = 0; i < matriz.Count; i++)
                 {
-                    dety+=matriz[1][i] * cofactor(1, i, clonarM(matriz));
+                    det+=matriz[1][i] * cofactor(1, i, clonarM(matriz));
                 }
-                return dety;
+                return det;
             }
         }
         private void btnInversa_Click(object sender, EventArgs e)
         {
-            if (cmbInversa.SelectedIndex == 1)
-            {
-                if (dimensiones[cmbMatriz.SelectedIndex][0]== dimensiones[cmbMatriz.SelectedIndex][1]) // si tiene la cantidad de filas igual a la cantidad de columnas quiere decir que es cuadrada xD
-                {
-                    SacarCofactor();
-                }
-            }
+                       
         }
 
         private void radioInversa_CheckedChanged(object sender, EventArgs e)
@@ -845,6 +833,7 @@ namespace Primer_tarea_programada
             }
             else
             {
+                label9.Visible = false;
                 txtOperador.Enabled = false;
             }
         }
@@ -887,7 +876,6 @@ namespace Primer_tarea_programada
                 }
                 Console.WriteLine();
             }
-            
         }
     }
 }

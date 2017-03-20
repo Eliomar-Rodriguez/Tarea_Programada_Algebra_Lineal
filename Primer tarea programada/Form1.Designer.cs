@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cmbMatriz = new System.Windows.Forms.ComboBox();
             this.btnPasos = new System.Windows.Forms.Button();
             this.cmbFilas = new System.Windows.Forms.ComboBox();
@@ -133,6 +134,7 @@
             this.cmbInversa = new System.Windows.Forms.ComboBox();
             this.cmbColumn = new System.Windows.Forms.ComboBox();
             this.pnlInversa = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlInversa.SuspendLayout();
             this.SuspendLayout();
@@ -1208,7 +1210,7 @@
             // btnInversa
             // 
             this.btnInversa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInversa.Location = new System.Drawing.Point(247, 3);
+            this.btnInversa.Location = new System.Drawing.Point(417, 3);
             this.btnInversa.Name = "btnInversa";
             this.btnInversa.Size = new System.Drawing.Size(117, 42);
             this.btnInversa.TabIndex = 184;
@@ -1236,7 +1238,7 @@
             this.cmbInversa.Items.AddRange(new object[] {
             "Gauss – Jordan",
             "Matriz de cofactores"});
-            this.cmbInversa.Location = new System.Drawing.Point(3, 5);
+            this.cmbInversa.Location = new System.Drawing.Point(169, 5);
             this.cmbInversa.Name = "cmbInversa";
             this.cmbInversa.Size = new System.Drawing.Size(237, 34);
             this.cmbInversa.TabIndex = 188;
@@ -1260,13 +1262,26 @@
             // 
             // pnlInversa
             // 
+            this.pnlInversa.Controls.Add(this.label10);
             this.pnlInversa.Controls.Add(this.cmbInversa);
             this.pnlInversa.Controls.Add(this.btnInversa);
-            this.pnlInversa.Location = new System.Drawing.Point(258, 146);
+            this.pnlInversa.Location = new System.Drawing.Point(93, 146);
             this.pnlInversa.Name = "pnlInversa";
-            this.pnlInversa.Size = new System.Drawing.Size(373, 51);
+            this.pnlInversa.Size = new System.Drawing.Size(538, 51);
             this.pnlInversa.TabIndex = 189;
             this.pnlInversa.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(4, 9);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 29);
+            this.label10.TabIndex = 189;
+            this.label10.Text = "Tipo inversa";
             // 
             // Form1
             // 
@@ -1370,6 +1385,7 @@
             this.Controls.Add(this.a12);
             this.Controls.Add(this.a11);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Operaciones con Matrices";
@@ -1377,6 +1393,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlInversa.ResumeLayout(false);
+            this.pnlInversa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1488,6 +1505,7 @@
         private System.Windows.Forms.ComboBox cmbColumn;
         private System.Windows.Forms.RadioButton radioInversa;
         private System.Windows.Forms.Panel pnlInversa;
+        private System.Windows.Forms.Label label10;
     }
 }
 
