@@ -83,6 +83,20 @@ namespace Primer_tarea_programada
             toolTipText.SetToolTip(this.btnResolver, "Muestra el RESULTADO FINAL de la operación seleccionada.");
         }
 
+        public List<List<float>> clon(List<List<float>> target)
+        {
+            List < List < float >> clon=new List<List<float>>();
+            for (int x = 0; x < target.Count; x++)
+            {
+                clon.Add(new List<float>());
+                for (int y = 0; y < target[0].Count; y++)
+                {
+                    clon[x].Add(target[x][y]);
+                }
+            }
+            return clon;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int x = 0; x < 3; x++)
@@ -803,7 +817,32 @@ namespace Primer_tarea_programada
         }
         private void btnInversa_Click(object sender, EventArgs e)
         {
-                       
+            if (cmbInversa.SelectedIndex == 0)
+            {
+                GuardarDatos(cmbMatriz.SelectedIndex,dimensiones[cmbMatriz.SelectedIndex][0], dimensiones[cmbMatriz.SelectedIndex][1]);
+                List<List<float>> target = new List<List<float>>();
+                for (int x = 0; x <= dimensiones[cmbMatriz.SelectedIndex][0]; x++)
+                {
+                    target.Add(new List<float>());
+                    for (int y = 0; y <= dimensiones[cmbMatriz.SelectedIndex][1]; y++)
+                    {
+                        target[x].Add(matrizLog[cmbMatriz.SelectedIndex][x][y]);
+                    }
+                }
+                target = Gauss_Jordan.dividirMatrizAumentada(Gauss_Jordan.construirInversa(Gauss_Jordan.construirMatrizAumentada(target, target.Count)));
+                matrizLog[2] = target;
+                CambioDim(2, target.Count,target[0].Count);
+                for (int x = 0; x < target.Count; x++)
+                {
+                    for (int y = 0; y < target[0].Count; y++)
+                    {
+                        matrizLog[2][x][y] = target[x][y];
+                    }
+                }
+                ActMatVisual(2);
+                Caja.Text = Gauss_Jordan.LOG;
+
+            }
         }
 
         private void radioInversa_CheckedChanged(object sender, EventArgs e)
